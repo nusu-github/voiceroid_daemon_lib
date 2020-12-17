@@ -6,7 +6,7 @@ const cheerio = require("cheerio");
  * Home/SpeakerSetting
  * voiceroid_daemonで利用可能な話者の一覧を返す
  * @param {string} address voiceroid_daemonのアドレス
- * @param {string} port voiceroid_daemonのポート
+ * @param {number} port voiceroid_daemonのポート
  */
 const returns_list_available_speaker = async (address, port) => {
   const list = [];
@@ -17,6 +17,7 @@ const returns_list_available_speaker = async (address, port) => {
   if (speakers.body) {
     const speakers_list_json = JSON.parse(speakers.body);
     const current_speaker_json = JSON.parse(current_speaker.body);
+    console.log(speakers.body)
     for (const [voiceDbName, speakerName] of Object.entries(
       speakers_list_json
     )) {
@@ -39,7 +40,7 @@ const returns_list_available_speaker = async (address, port) => {
  * Home/SpeakerSetting
  * 話者を変更する
  * @param {string} address voiceroid_daemonのアドレス
- * @param {string} port voiceroid_daemonのポート
+ * @param {number} port voiceroid_daemonのポート
  * @param {string} voice_library ボイスライブラリ
  */
 const change_speaker = async (address, port, voice_library) =>
@@ -52,7 +53,7 @@ const change_speaker = async (address, port, voice_library) =>
  * /api/converttext
  * 文章をVOICEROIDの読み仮名に変換する
  * @param {string} address voiceroid_daemonのアドレス
- * @param {string} port voiceroid_daemonのポート
+ * @param {number} port voiceroid_daemonのポート
  * @param {json} parameter_data スピーチパラメータ
  */
 const convert_sentence_into_kana = (address, port, parameter_data) =>
@@ -65,7 +66,7 @@ const convert_sentence_into_kana = (address, port, parameter_data) =>
  * /api/speechtext
  * 文章の音声データ(wav)を返す
  * @param {string} address voiceroid_daemonのアドレス
- * @param {string} port voiceroid_daemonのポート
+ * @param {number} port voiceroid_daemonのポート
  * @param {json} parameter_data スピーチパラメータ
  */
 const convert_sentence_into_voice = (address, port, parameter_data) => {
@@ -80,7 +81,7 @@ const convert_sentence_into_voice = (address, port, parameter_data) => {
  * /api/speechtext
  * 話者を変更して文章の音声データ(wav)を返す
  * @param {string} address voiceroid_daemonのアドレス
- * @param {string} port voiceroid_daemonのポート
+ * @param {number} port voiceroid_daemonのポート
  * @param {json} parameter_data スピーチパラメータ
  */
 const speaker_change_sentence_voice_converting = async (
@@ -99,8 +100,8 @@ const speaker_change_sentence_voice_converting = async (
 
 /**
  * 認証コードのシード値を取得します。(ホストのマシンでVOICEROID2を起動した状態で実行してください。)
- * @param {*} address
- * @param {*} port
+ * @param {string} address
+ * @param {number} port
  */
 const get_authorization_code_seed_value = async (address, port) => {
   const url = `${address}:${port}/api/getkey/VoiceroidEditor.exe`;
@@ -111,8 +112,8 @@ const get_authorization_code_seed_value = async (address, port) => {
 
 /**
  * 設定内容を取得する。
- * @param {*} address
- * @param {*} port
+ * @param {string} address
+ * @param {number} port
  */
 const get_system_setting = async (address, port) => {
   const url = `${address}:${port}/Home/SystemSetting`;
@@ -166,9 +167,9 @@ const get_system_setting = async (address, port) => {
  * config_jsonはその内容、複数同時や単体変更も可能
  * ただし一部の設定はvoiceroid_daemon本体の再起動を必要とするので注意
  * { location: "" , content: "" }
- * @param {*} address
- * @param {*} port
- * @param {*} config_json
+ * @param {string} address
+ * @param {number} port
+ * @param {json} config_json
  */
 const set_system_setting = async (address, port, config_json) => {
   const url = `${address}:${port}/Home/SystemSetting`;
