@@ -17,7 +17,6 @@ const returns_list_available_speaker = async (address, port) => {
   if (speakers.body) {
     const speakers_list_json = JSON.parse(speakers.body);
     const current_speaker_json = JSON.parse(current_speaker.body);
-    console.log(speakers.body)
     for (const [voiceDbName, speakerName] of Object.entries(
       speakers_list_json
     )) {
