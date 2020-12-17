@@ -1,0 +1,15 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["node", "security", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "camelcase": "off",
+    "new-cap": "off"
+  }
+}
