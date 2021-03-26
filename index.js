@@ -69,7 +69,7 @@ const returns_list_available_speaker = async (address, port) => {
  * @param {string} voice_data 話者情報
  */
 const change_speaker = async (address, port, voice_data) => {
-  const validation = new Validator(voice_data, speaker_information_rules);
+  const validation = new validator(voice_data, speaker_information_rules);
   if (validation.fails()) throw new Error(validation.errors.all());
   return await got.post(`${address}:${port}/api/set/speaker`, {
     method: "POST",
@@ -85,7 +85,7 @@ const change_speaker = async (address, port, voice_data) => {
  * @param {json} parameter_data スピーチパラメータ
  */
 const convert_sentence_into_kana = async (address, port, parameter_data) => {
-  const validation = new Validator(parameter_data, speech_parameter_rules);
+  const validation = new validator(parameter_data, speech_parameter_rules);
   if (validation.fails()) throw new Error(validation.errors.all());
   return await got.post(`${address}:${port}/api/converttext`, {
     method: "POST",
@@ -101,7 +101,7 @@ const convert_sentence_into_kana = async (address, port, parameter_data) => {
  * @param {json} parameter_data スピーチパラメータ
  */
 const convert_sentence_into_voice = (address, port, parameter_data) => {
-  const validation = new Validator(parameter_data, speech_parameter_rules);
+  const validation = new validator(parameter_data, speech_parameter_rules);
   if (validation.fails()) throw new Error(validation.errors.all());
   parameter_data.Text = `${parameter_data.Text}。。`;
   return got.stream(`${address}:${port}/api/speechtext`, {
