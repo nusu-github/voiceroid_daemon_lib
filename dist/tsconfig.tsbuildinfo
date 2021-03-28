@@ -622,8 +622,8 @@
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
-        "version": "a26bc5d295ffd399dd91dd3cefe081d435c10909a1e97aa26013bdcbaecb0feb",
-        "signature": "e11d7d4ebeabce5b2e42fd5f511d26a79808180921978c6a2f9bbd70302b7f06",
+        "version": "11a1fd71f7eef6d3e62218c97dee55193d4486283fb743a4054ca2b32e892187",
+        "signature": "ef836124fc0008b8eb86e652556a29aa8b83038448470c3ca611e4a26a6a3805",
         "affectsGlobalScope": false
       },
       "../node_modules/.pnpm/@types/cheerio@0.22.28/node_modules/@types/cheerio/index.d.ts": {
@@ -649,6 +649,7 @@
       "outDir": "./",
       "strict": true,
       "declaration": true,
+      "forceConsistentCasingInFileNames": true,
       "pretty": true,
       "newLine": 1,
       "skipLibCheck": true,
@@ -1029,6 +1030,7 @@
         "../node_modules/.pnpm/@types/cheerio@0.22.28/node_modules/@types/cheerio/index.d.ts",
         "../node_modules/.pnpm/@types/koozaki__romaji-conv@2.0.0/node_modules/@types/koozaki__romaji-conv/index.d.ts",
         "../node_modules/.pnpm/form-data@4.0.0/node_modules/form-data/index.d.ts",
+        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/index.d.ts",
         "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/index.d.ts"
       ]
     },

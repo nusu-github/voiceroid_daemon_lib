@@ -6,13 +6,23 @@ import * as cheerio from "cheerio";
 /**
  * Home/SpeakerSetting
  * voiceroid_daemonで利用可能な話者の一覧を返す
- * @param {string} address voiceroid_daemonのアドレス
- * @param {number} port voiceroid_daemonのポート
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @returns 話者一覧
  */
 const returns_list_available_speaker = async (
   address: string,
   port: number
-) => {
+): Promise<
+  {
+    name: string;
+    roman: string;
+    voice_library: string;
+    selected: boolean;
+    emotion: boolean;
+    west: boolean;
+  }[]
+> => {
   const current_speaker: {
     voiceDbName: string;
     speakerName: string;
@@ -41,81 +51,119 @@ const returns_list_available_speaker = async (
     .sort((a, b) => (a.voice_library > b.voice_library && 1) || -1);
   return list;
 };
+
 /**
  * Home/SpeakerSetting
  * 話者を変更する
- * @param {string} address voiceroid_daemonのアドレス
- * @param {number} port voiceroid_daemonのポート
- * @param {Record<string, any>} voice_data 話者情報
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @param voice_data 話者情報
+ * @returns Response
  */
 const change_speaker = async (
   address: string,
   port: number,
-  voice_data: Record<string, any>
-) => {
-  return await got.post(`${address}:${port}/api/set/speaker`, {
+  voice_data: {
+    voiceDbName: string;
+    speakerName: string;
+  }
+): Promise<import("got/dist/source").Response<string>> =>
+  await got.post(`${address}:${port}/api/set/speaker`, {
     method: "POST",
     json: voice_data,
   });
-};
 
 /**
  * /api/converttext
  * 文章をVOICEROIDの読み仮名に変換する
- * @param {string} address voiceroid_daemonのアドレス
- * @param {number} port voiceroid_daemonのポート
- * @param {Record<string, any>} parameter_data スピーチパラメータ
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @param parameter_data スピーチパラメータ
+ * @returns Response
  */
 const convert_sentence_into_kana = async (
   address: string,
   port: number,
-  parameter_data: Record<string, any>
-) => {
-  return await got.post(`${address}:${port}/api/converttext`, {
+  parameter_data: {
+    Text: string;
+  }
+): Promise<import("got/dist/source").Response<string>> =>
+  await got.post(`${address}:${port}/api/converttext`, {
     method: "POST",
     json: parameter_data,
   });
-};
 
 /**
  * /api/speechtext
  * 文章の音声データ(wav)を返す
- * @param {string} address voiceroid_daemonのアドレス
- * @param {number} port voiceroid_daemonのポート
- * @param {Record<string, any>} parameter_data スピーチパラメータ
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @param parameter_data スピーチパラメータ
+ * @returns Response
  */
 const convert_sentence_into_voice = (
   address: string,
   port: number,
-  parameter_data: Record<string, any>
-) => {
-  return got.stream(`${address}:${port}/api/speechtext`, {
+  parameter_data: {
+    Text: string;
+    Kana: string;
+    Speaker: {
+      Volume: number;
+      Speed: number;
+      Pitch: number;
+      Emphasis: number;
+      PauseMiddle: number;
+      PauseLong: number;
+      PauseSentence: number;
+    };
+    SpeakerSetting: {
+      VoiceDbName: string;
+      SpeakerName: string;
+    };
+  }
+): import("got/dist/source/core").default =>
+  got.stream(`${address}:${port}/api/speechtext`, {
     method: "POST",
     json: parameter_data,
   });
-};
 
 /**
  * 認証コードのシード値を取得します。(ホストのマシンでVOICEROID2を起動した状態で実行してください。)
- * @param {string} address
- * @param {number} port
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @returns body
  */
 const get_authorization_code_seed_value = async (
   address: string,
   port: number
-) => {
+): Promise<string> => {
   const url = `${address}:${port}/api/getkey/VoiceroidEditor.exe`;
   const { body } = await got(url);
-  if (body) return body;
-  else throw new Error("Failed to get");
+  if (!body) throw new Error("Failed to get");
+  return body;
 };
 
 /**
  * 設定内容を取得する。
- * @param {string} address
- * @param {number} port
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @returns 
  */
-const get_system_setting = async (address: string, port: number) => {
+const get_system_setting = async (
+  address: string,
+  port: number
+): Promise<{
+  install_path: string;
+  voiceroid_editor_exe: string;
+  auth_code_seed: string;
+  language_name: { selected: boolean; value: string }[];
+  phrase_dictionary_path: string;
+  word_dictionary_path: string;
+  symbol_dictionary_path: string;
+  kana_timeout: string;
+  speech_timeout: string;
+  listening_address: string;
+}> => {
   const url = `${address}:${port}/Home/SystemSetting`;
   const { body } = await got(url);
   const $ = cheerio.load(body);
@@ -166,16 +214,28 @@ const get_system_setting = async (address: string, port: number) => {
  * 設定を変更する。
  * config_jsonはその内容、複数同時や単体変更も可能
  * ただし一部の設定はvoiceroid_daemon本体の再起動を必要とするので注意
- * {location: "" , content: "" }
- * @param {string} address
- * @param {number} port
- * @param {Record<string, any>} config_json
+ * 再起動の命令はこちらからは出せないため物理アクセス必須です
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @param config_json get_system_settingの取得できる内容
+ * @returns 
  */
 const set_system_setting = async (
   address: string,
   port: number,
-  config_json: Record<string, any>
-) => {
+  config_json: {
+    install_path: string;
+    voiceroid_editor_exe: string;
+    auth_code_seed: string;
+    language_name: { selected: boolean; value: string }[];
+    phrase_dictionary_path: string;
+    word_dictionary_path: string;
+    symbol_dictionary_path: string;
+    kana_timeout: string;
+    speech_timeout: string;
+    listening_address: string;
+  }
+): Promise<string> => {
   const url = `${address}:${port}/Home/SystemSetting`;
   const current_data = await get_system_setting(address, port);
   const form = new FormData();
@@ -223,13 +283,14 @@ const set_system_setting = async (
   const { body } = await got.post(url, { body: form });
   const $ = cheerio.load(body);
   const return_result = $("head > script")
-    .html()!
-    .split(/\n/)
+    .html()
+    ?.split(/\n/)
     .filter((value: string) => /var result =/.test(value))[0]
     .replace(/.+=\s'/, "")
     .replace(/'.+/, "");
+  if (!return_result) throw new Error("Not data");
   if (/エラー/.test(return_result)) throw new Error(return_result);
-  else return return_result;
+  return return_result;
 };
 
 export = {

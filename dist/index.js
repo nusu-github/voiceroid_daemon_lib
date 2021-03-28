@@ -6,8 +6,9 @@ const cheerio = require("cheerio");
 /**
  * Home/SpeakerSetting
  * voiceroid_daemonで利用可能な話者の一覧を返す
- * @param {string} address voiceroid_daemonのアドレス
- * @param {number} port voiceroid_daemonのポート
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @returns 話者一覧
  */
 const returns_list_available_speaker = async (address, port) => {
     const current_speaker = await got_1.default(`${address}:${port}/api/get/current_speaker`).json();
@@ -31,59 +32,57 @@ const returns_list_available_speaker = async (address, port) => {
 /**
  * Home/SpeakerSetting
  * 話者を変更する
- * @param {string} address voiceroid_daemonのアドレス
- * @param {number} port voiceroid_daemonのポート
- * @param {Record<string, any>} voice_data 話者情報
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @param voice_data 話者情報
+ * @returns Response
  */
-const change_speaker = async (address, port, voice_data) => {
-    return await got_1.default.post(`${address}:${port}/api/set/speaker`, {
-        method: "POST",
-        json: voice_data,
-    });
-};
+const change_speaker = async (address, port, voice_data) => await got_1.default.post(`${address}:${port}/api/set/speaker`, {
+    method: "POST",
+    json: voice_data,
+});
 /**
  * /api/converttext
  * 文章をVOICEROIDの読み仮名に変換する
- * @param {string} address voiceroid_daemonのアドレス
- * @param {number} port voiceroid_daemonのポート
- * @param {Record<string, any>} parameter_data スピーチパラメータ
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @param parameter_data スピーチパラメータ
+ * @returns Response
  */
-const convert_sentence_into_kana = async (address, port, parameter_data) => {
-    return await got_1.default.post(`${address}:${port}/api/converttext`, {
-        method: "POST",
-        json: parameter_data,
-    });
-};
+const convert_sentence_into_kana = async (address, port, parameter_data) => await got_1.default.post(`${address}:${port}/api/converttext`, {
+    method: "POST",
+    json: parameter_data,
+});
 /**
  * /api/speechtext
  * 文章の音声データ(wav)を返す
- * @param {string} address voiceroid_daemonのアドレス
- * @param {number} port voiceroid_daemonのポート
- * @param {Record<string, any>} parameter_data スピーチパラメータ
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @param parameter_data スピーチパラメータ
+ * @returns Response
  */
-const convert_sentence_into_voice = (address, port, parameter_data) => {
-    return got_1.default.stream(`${address}:${port}/api/speechtext`, {
-        method: "POST",
-        json: parameter_data,
-    });
-};
+const convert_sentence_into_voice = (address, port, parameter_data) => got_1.default.stream(`${address}:${port}/api/speechtext`, {
+    method: "POST",
+    json: parameter_data,
+});
 /**
  * 認証コードのシード値を取得します。(ホストのマシンでVOICEROID2を起動した状態で実行してください。)
- * @param {string} address
- * @param {number} port
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @returns body
  */
 const get_authorization_code_seed_value = async (address, port) => {
     const url = `${address}:${port}/api/getkey/VoiceroidEditor.exe`;
     const { body } = await got_1.default(url);
-    if (body)
-        return body;
-    else
+    if (!body)
         throw new Error("Failed to get");
+    return body;
 };
 /**
  * 設定内容を取得する。
- * @param {string} address
- * @param {number} port
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @returns
  */
 const get_system_setting = async (address, port) => {
     const url = `${address}:${port}/Home/SystemSetting`;
@@ -132,10 +131,11 @@ const get_system_setting = async (address, port) => {
  * 設定を変更する。
  * config_jsonはその内容、複数同時や単体変更も可能
  * ただし一部の設定はvoiceroid_daemon本体の再起動を必要とするので注意
- * {location: "" , content: "" }
- * @param {string} address
- * @param {number} port
- * @param {Record<string, any>} config_json
+ * 再起動の命令はこちらからは出せないため物理アクセス必須です
+ * @param address voiceroid_daemonのアドレス
+ * @param port voiceroid_daemonのポート
+ * @param config_json get_system_settingの取得できる内容
+ * @returns
  */
 const set_system_setting = async (address, port, config_json) => {
     const url = `${address}:${port}/Home/SystemSetting`;
@@ -156,14 +156,15 @@ const set_system_setting = async (address, port, config_json) => {
     const $ = cheerio.load(body);
     const return_result = $("head > script")
         .html()
-        .split(/\n/)
+        ?.split(/\n/)
         .filter((value) => /var result =/.test(value))[0]
         .replace(/.+=\s'/, "")
         .replace(/'.+/, "");
+    if (!return_result)
+        throw new Error("Not data");
     if (/エラー/.test(return_result))
         throw new Error(return_result);
-    else
-        return return_result;
+    return return_result;
 };
 module.exports = {
     returns_list_available_speaker,
