@@ -1,34 +1,7 @@
 import got from "got";
 import { toHiragana } from "@koozaki/romaji-conv";
-import * as validator from "validatorjs";
 import * as FormData from "form-data";
 import * as cheerio from "cheerio";
-validator.useLang("ja.js");
-
-/*
- バリデーション一覧
-*/
-const speaker_information_rules = {
-  voiceDbName: "required|string",
-  speakerName: "required|string",
-};
-const speech_parameter_rules = {
-  Text: "required|string",
-  Kana: "string",
-  Speaker: {
-    Volume: "numeric",
-    Speed: "numeric",
-    Pitch: "numeric",
-    Emphasis: "numeric",
-    PauseMiddle: "numeric",
-    PauseLong: "numeric",
-    PauseSentence: "numeric",
-  },
-  SpeakerSetting: {
-    VoiceDbName: "string",
-    SpeakerName: "string",
-  },
-};
 
 /**
  * Home/SpeakerSetting
@@ -40,27 +13,29 @@ const returns_list_available_speaker = async (
   address: string,
   port: number
 ) => {
-  const current_speaker = await got(
-    `${address}:${port}/api/get/current_speaker`
-  );
-  const speakers = await got(`${address}:${port}/api/get/speakers`);
-  if (!speakers.body) throw new Error("No body data");
-  const speakers_list_json: Record<string, string> = JSON.parse(speakers.body);
-  const current_speaker_json = JSON.parse(current_speaker.body);
-  const list = Object.entries(speakers_list_json)
+  const current_speaker: {
+    voiceDbName: string;
+    speakerName: string;
+  } = await got(`${address}:${port}/api/get/current_speaker`).json();
+  const speakers: [string, string] = await got(
+    `${address}:${port}/api/get/speakers`
+  ).json();
+  const list = Object.entries(speakers)
     .map(([voiceDbName, speakerName]) => {
+      const search_west = /_west_/;
+      const search_emo = /_emo_/;
       return {
         name: `${toHiragana(voiceDbName.replace(/_.*/, ""))}${
-          (voiceDbName.match("_west_") && " 関西弁") || ""
+          (search_west.exec(voiceDbName) && " 関西弁") || ""
         }`.trim(),
         roman: `${voiceDbName.replace(/_.*/, "")}${
-          (voiceDbName.match("_west_") && "_west") || ""
+          (search_west.exec(voiceDbName) && "_west") || ""
         }`,
         voice_library: speakerName[0],
         selected:
-          (voiceDbName === current_speaker_json.voiceDbName && true) || false,
-        emotion: (voiceDbName.match("_emo_") && true) || false,
-        west: (voiceDbName.match("_west_") && true) || false,
+          (voiceDbName === current_speaker.voiceDbName && true) || false,
+        emotion: (search_emo.exec(voiceDbName) && true) || false,
+        west: (search_west.exec(voiceDbName) && true) || false,
       };
     })
     .sort((a, b) => (a.voice_library > b.voice_library && 1) || -1);
@@ -78,9 +53,6 @@ const change_speaker = async (
   port: number,
   voice_data: Record<string, any>
 ) => {
-  const validation = new validator(voice_data, speaker_information_rules);
-  if (validation.fails())
-    throw new Error(`validator Error ${validation.errors.all()}`);
   return await got.post(`${address}:${port}/api/set/speaker`, {
     method: "POST",
     json: voice_data,
@@ -99,9 +71,6 @@ const convert_sentence_into_kana = async (
   port: number,
   parameter_data: Record<string, any>
 ) => {
-  const validation = new validator(parameter_data, speech_parameter_rules);
-  if (validation.fails())
-    throw new Error(`validator Error ${validation.errors.all()}`);
   return await got.post(`${address}:${port}/api/converttext`, {
     method: "POST",
     json: parameter_data,
@@ -120,10 +89,6 @@ const convert_sentence_into_voice = (
   port: number,
   parameter_data: Record<string, any>
 ) => {
-  const validation = new validator(parameter_data, speech_parameter_rules);
-  if (validation.fails())
-    throw new Error(`validator Error ${validation.errors.all()}`);
-  parameter_data.Text = `${parameter_data.Text}。。`;
   return got.stream(`${address}:${port}/api/speechtext`, {
     method: "POST",
     json: parameter_data,

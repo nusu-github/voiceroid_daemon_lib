@@ -1,5 +1,0 @@
-{
-  "restartable": "rs",
-  "watch": ["./dist"],
-  "exec": "node ./dist/server.js"
-}

@@ -1,51 +1,19 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "target": "es2019",
+    "target": "es2020",
     "module": "commonjs",
     "outDir": "./dist",
 
-    "lib": [
-      "dom",
-      "es2019.array" // targetがes2017だけどArray.flatとか使いたいよーと言う場合に追加してください。他にもいろいろあります。
-    ],
+    // "lib": [],
+
     "strict": true,
     "declaration": true,
+    "forceConsistentCasingInFileNames": true,
     "pretty": true,
     "newLine": "lf",
-
-    // 段階的に移行するならtrueにします。tsファイルからjsを読み込めるようになります。逆は無理
-    "allowJs": false,
-
-    // jsファイルの形チェックもしたければtrueにしましょう。全部のエラーに対応しなければいけなくなるのでfalseがおすすめ
-    "checkJs": false,
-
-    // d.tsファイルのtypeチェックを無効化します。（falseだとnode_modules内でエラー出まくりました）
     "skipLibCheck": true,
-
-    // 後述するモジュールと組み合わせるとtsファイルの行数でスタックが見られるので楽です
     "sourceMap": true,
-
-    // デコレーター使いたい場合はtrueで。Reactで使っているので必要でした。
-    "experimentalDecorators": true,
-
-    // TypeScript 3.4以上で使えます。watchしながらのトランスパイルが爆速になります。付けない理由はない。
-    "incremental": true,
-
-    // ここから先はlint的な要素です
-
-    // JavaScriptから移行する場合、この辺はfalseにしておかないとかなり辛いです。特にanyは無理です。
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-
-    // 使っていない変数が定義されてたら怒られるオプション。これはes-lintとかを導入していればトランスパイル自体はエラーにしなくてもいいかもしれません。
-    "noUnusedLocals": true,
-
-    // ここも移行していく場合とりあえずfalseでいいと思います
-    "strictNullChecks": true, // trueにすると例えば`number`にnullやundefinedを代入できなくします
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true
+    "incremental": true
   }
 }

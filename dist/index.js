@@ -1,34 +1,8 @@
 "use strict";
 const got_1 = require("got");
 const romaji_conv_1 = require("@koozaki/romaji-conv");
-const validator = require("validatorjs");
 const FormData = require("form-data");
 const cheerio = require("cheerio");
-validator.useLang("ja.js");
-/*
- バリデーション一覧
-*/
-const speaker_information_rules = {
-    voiceDbName: "required|string",
-    speakerName: "required|string",
-};
-const speech_parameter_rules = {
-    Text: "required|string",
-    Kana: "string",
-    Speaker: {
-        Volume: "numeric",
-        Speed: "numeric",
-        Pitch: "numeric",
-        Emphasis: "numeric",
-        PauseMiddle: "numeric",
-        PauseLong: "numeric",
-        PauseSentence: "numeric",
-    },
-    SpeakerSetting: {
-        VoiceDbName: "string",
-        SpeakerName: "string",
-    },
-};
 /**
  * Home/SpeakerSetting
  * voiceroid_daemonで利用可能な話者の一覧を返す
@@ -36,21 +10,19 @@ const speech_parameter_rules = {
  * @param {number} port voiceroid_daemonのポート
  */
 const returns_list_available_speaker = async (address, port) => {
-    const current_speaker = await got_1.default(`${address}:${port}/api/get/current_speaker`);
-    const speakers = await got_1.default(`${address}:${port}/api/get/speakers`);
-    if (!speakers.body)
-        throw new Error("No body data");
-    const speakers_list_json = JSON.parse(speakers.body);
-    const current_speaker_json = JSON.parse(current_speaker.body);
-    const list = Object.entries(speakers_list_json)
+    const current_speaker = await got_1.default(`${address}:${port}/api/get/current_speaker`).json();
+    const speakers = await got_1.default(`${address}:${port}/api/get/speakers`).json();
+    const list = Object.entries(speakers)
         .map(([voiceDbName, speakerName]) => {
+        const search_west = /_west_/;
+        const search_emo = /_emo_/;
         return {
-            name: `${romaji_conv_1.toHiragana(voiceDbName.replace(/_.*/, ""))}${(voiceDbName.match("_west_") && " 関西弁") || ""}`.trim(),
-            roman: `${voiceDbName.replace(/_.*/, "")}${(voiceDbName.match("_west_") && "_west") || ""}`,
+            name: `${romaji_conv_1.toHiragana(voiceDbName.replace(/_.*/, ""))}${(search_west.exec(voiceDbName) && " 関西弁") || ""}`.trim(),
+            roman: `${voiceDbName.replace(/_.*/, "")}${(search_west.exec(voiceDbName) && "_west") || ""}`,
             voice_library: speakerName[0],
-            selected: (voiceDbName === current_speaker_json.voiceDbName && true) || false,
-            emotion: (voiceDbName.match("_emo_") && true) || false,
-            west: (voiceDbName.match("_west_") && true) || false,
+            selected: (voiceDbName === current_speaker.voiceDbName && true) || false,
+            emotion: (search_emo.exec(voiceDbName) && true) || false,
+            west: (search_west.exec(voiceDbName) && true) || false,
         };
     })
         .sort((a, b) => (a.voice_library > b.voice_library && 1) || -1);
@@ -64,9 +36,6 @@ const returns_list_available_speaker = async (address, port) => {
  * @param {Record<string, any>} voice_data 話者情報
  */
 const change_speaker = async (address, port, voice_data) => {
-    const validation = new validator(voice_data, speaker_information_rules);
-    if (validation.fails())
-        throw new Error(`validator Error ${validation.errors.all()}`);
     return await got_1.default.post(`${address}:${port}/api/set/speaker`, {
         method: "POST",
         json: voice_data,
@@ -80,9 +49,6 @@ const change_speaker = async (address, port, voice_data) => {
  * @param {Record<string, any>} parameter_data スピーチパラメータ
  */
 const convert_sentence_into_kana = async (address, port, parameter_data) => {
-    const validation = new validator(parameter_data, speech_parameter_rules);
-    if (validation.fails())
-        throw new Error(`validator Error ${validation.errors.all()}`);
     return await got_1.default.post(`${address}:${port}/api/converttext`, {
         method: "POST",
         json: parameter_data,
@@ -96,10 +62,6 @@ const convert_sentence_into_kana = async (address, port, parameter_data) => {
  * @param {Record<string, any>} parameter_data スピーチパラメータ
  */
 const convert_sentence_into_voice = (address, port, parameter_data) => {
-    const validation = new validator(parameter_data, speech_parameter_rules);
-    if (validation.fails())
-        throw new Error(`validator Error ${validation.errors.all()}`);
-    parameter_data.Text = `${parameter_data.Text}。。`;
     return got_1.default.stream(`${address}:${port}/api/speechtext`, {
         method: "POST",
         json: parameter_data,
