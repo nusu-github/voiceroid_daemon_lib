@@ -1,34 +1,34 @@
-const got = require("got");
-const FormData = require("form-data");
-const cheerio = require("cheerio");
-const { toHiragana } = require('@koozaki/romaji-conv');
-const validator = require('validatorjs');
-validator.useLang('ja.js');
+import got from "got";
+import { toHiragana } from "@koozaki/romaji-conv";
+import * as validator from "validatorjs";
+import * as FormData from "form-data";
+import * as cheerio from "cheerio";
+validator.useLang("ja.js");
 
 /*
  バリデーション一覧
 */
 const speaker_information_rules = {
-  voiceDbName: 'required|string', speakerName: 'required|string'
-}
+  voiceDbName: "required|string",
+  speakerName: "required|string",
+};
 const speech_parameter_rules = {
-  Text: 'required|string',
-  Kana: 'string',
+  Text: "required|string",
+  Kana: "string",
   Speaker: {
-    Volume: 'numeric',
+    Volume: "numeric",
     Speed: "numeric",
     Pitch: "numeric",
     Emphasis: "numeric",
     PauseMiddle: "numeric",
     PauseLong: "numeric",
-    PauseSentence: "numeric"
+    PauseSentence: "numeric",
   },
   SpeakerSetting: {
     VoiceDbName: "string",
-    SpeakerName: "string"
-  }
-}
-
+    SpeakerName: "string",
+  },
+};
 
 /**
  * Home/SpeakerSetting
@@ -36,73 +36,93 @@ const speech_parameter_rules = {
  * @param {string} address voiceroid_daemonのアドレス
  * @param {number} port voiceroid_daemonのポート
  */
-const returns_list_available_speaker = async (address, port) => {
+const returns_list_available_speaker = async (
+  address: string,
+  port: number
+) => {
   const current_speaker = await got(
     `${address}:${port}/api/get/current_speaker`
   );
   const speakers = await got(`${address}:${port}/api/get/speakers`);
-  if (!speakers.body) throw new Error('No body data');
-  const speakers_list_json = JSON.parse(speakers.body);
+  if (!speakers.body) throw new Error("No body data");
+  const speakers_list_json: Record<string, string> = JSON.parse(speakers.body);
   const current_speaker_json = JSON.parse(current_speaker.body);
-  const list = Object.entries(
-    speakers_list_json
-  ).map(([voiceDbName, speakerName]) => {
-    return {
-      name: `${toHiragana(voiceDbName.replace(/_.*/, ""))}${(voiceDbName.match("_west_") && " 関西弁") || ""
+  const list = Object.entries(speakers_list_json)
+    .map(([voiceDbName, speakerName]) => {
+      return {
+        name: `${toHiragana(voiceDbName.replace(/_.*/, ""))}${
+          (voiceDbName.match("_west_") && " 関西弁") || ""
         }`.trim(),
-      roman: `${voiceDbName.replace(/_.*/, "")}${(voiceDbName.match("_west_") && "_west") || ""
+        roman: `${voiceDbName.replace(/_.*/, "")}${
+          (voiceDbName.match("_west_") && "_west") || ""
         }`,
-      voice_library: speakerName[0],
-      selected:
-        (voiceDbName === current_speaker_json.voiceDbName && true) || false,
-      emotion: (voiceDbName.match("_emo_") && true) || false,
-      west: (voiceDbName.match("_west_") && true) || false,
-    }
-  }).sort((a, b) => (a.voice_library > b.voice_library && 1) || -1);
-  return list
+        voice_library: speakerName[0],
+        selected:
+          (voiceDbName === current_speaker_json.voiceDbName && true) || false,
+        emotion: (voiceDbName.match("_emo_") && true) || false,
+        west: (voiceDbName.match("_west_") && true) || false,
+      };
+    })
+    .sort((a, b) => (a.voice_library > b.voice_library && 1) || -1);
+  return list;
 };
 /**
  * Home/SpeakerSetting
  * 話者を変更する
  * @param {string} address voiceroid_daemonのアドレス
  * @param {number} port voiceroid_daemonのポート
- * @param {string} voice_data 話者情報
+ * @param {Record<string, any>} voice_data 話者情報
  */
-const change_speaker = async (address, port, voice_data) => {
+const change_speaker = async (
+  address: string,
+  port: number,
+  voice_data: Record<string, any>
+) => {
   const validation = new validator(voice_data, speaker_information_rules);
-  if (validation.fails()) throw new Error(validation.errors.all());
+  if (validation.fails())
+    throw new Error(`validator Error ${validation.errors.all()}`);
   return await got.post(`${address}:${port}/api/set/speaker`, {
     method: "POST",
     json: voice_data,
   });
-}
+};
 
 /**
  * /api/converttext
  * 文章をVOICEROIDの読み仮名に変換する
  * @param {string} address voiceroid_daemonのアドレス
  * @param {number} port voiceroid_daemonのポート
- * @param {json} parameter_data スピーチパラメータ
+ * @param {Record<string, any>} parameter_data スピーチパラメータ
  */
-const convert_sentence_into_kana = async (address, port, parameter_data) => {
+const convert_sentence_into_kana = async (
+  address: string,
+  port: number,
+  parameter_data: Record<string, any>
+) => {
   const validation = new validator(parameter_data, speech_parameter_rules);
-  if (validation.fails()) throw new Error(validation.errors.all());
+  if (validation.fails())
+    throw new Error(`validator Error ${validation.errors.all()}`);
   return await got.post(`${address}:${port}/api/converttext`, {
     method: "POST",
     json: parameter_data,
   });
-}
+};
 
 /**
  * /api/speechtext
  * 文章の音声データ(wav)を返す
  * @param {string} address voiceroid_daemonのアドレス
  * @param {number} port voiceroid_daemonのポート
- * @param {json} parameter_data スピーチパラメータ
+ * @param {Record<string, any>} parameter_data スピーチパラメータ
  */
-const convert_sentence_into_voice = (address, port, parameter_data) => {
+const convert_sentence_into_voice = (
+  address: string,
+  port: number,
+  parameter_data: Record<string, any>
+) => {
   const validation = new validator(parameter_data, speech_parameter_rules);
-  if (validation.fails()) throw new Error(validation.errors.all());
+  if (validation.fails())
+    throw new Error(`validator Error ${validation.errors.all()}`);
   parameter_data.Text = `${parameter_data.Text}。。`;
   return got.stream(`${address}:${port}/api/speechtext`, {
     method: "POST",
@@ -115,7 +135,10 @@ const convert_sentence_into_voice = (address, port, parameter_data) => {
  * @param {string} address
  * @param {number} port
  */
-const get_authorization_code_seed_value = async (address, port) => {
+const get_authorization_code_seed_value = async (
+  address: string,
+  port: number
+) => {
   const url = `${address}:${port}/api/getkey/VoiceroidEditor.exe`;
   const { body } = await got(url);
   if (body) return body;
@@ -127,7 +150,7 @@ const get_authorization_code_seed_value = async (address, port) => {
  * @param {string} address
  * @param {number} port
  */
-const get_system_setting = async (address, port) => {
+const get_system_setting = async (address: string, port: number) => {
   const url = `${address}:${port}/Home/SystemSetting`;
   const { body } = await got(url);
   const $ = cheerio.load(body);
@@ -181,9 +204,13 @@ const get_system_setting = async (address, port) => {
  * {location: "" , content: "" }
  * @param {string} address
  * @param {number} port
- * @param {json} config_json
+ * @param {Record<string, any>} config_json
  */
-const set_system_setting = async (address, port, config_json) => {
+const set_system_setting = async (
+  address: string,
+  port: number,
+  config_json: Record<string, any>
+) => {
   const url = `${address}:${port}/Home/SystemSetting`;
   const current_data = await get_system_setting(address, port);
   const form = new FormData();
@@ -202,7 +229,7 @@ const set_system_setting = async (address, port, config_json) => {
   form.append(
     "LanguageName",
     config_json.language_name ||
-    current_data.language_name.filter(({ selected }) => selected)[0].value
+      current_data.language_name.filter(({ selected }) => selected)[0].value
   );
   form.append(
     "PhraseDictionaryPath",
@@ -231,16 +258,16 @@ const set_system_setting = async (address, port, config_json) => {
   const { body } = await got.post(url, { body: form });
   const $ = cheerio.load(body);
   const return_result = $("head > script")
-    .html()
+    .html()!
     .split(/\n/)
-    .filter((value) => /var result =/.test(value))[0]
+    .filter((value: string) => /var result =/.test(value))[0]
     .replace(/.+=\s'/, "")
     .replace(/'.+/, "");
   if (/エラー/.test(return_result)) throw new Error(return_result);
   else return return_result;
 };
 
-module.exports = {
+export = {
   returns_list_available_speaker,
   change_speaker,
   convert_sentence_into_voice,
