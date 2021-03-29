@@ -622,8 +622,8 @@
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
-        "version": "11a1fd71f7eef6d3e62218c97dee55193d4486283fb743a4054ca2b32e892187",
-        "signature": "ef836124fc0008b8eb86e652556a29aa8b83038448470c3ca611e4a26a6a3805",
+        "version": "fa30f620b68aea1eca125ef63f34361194d8e0122bfaf30196759ba722093613",
+        "signature": "3722f2bd2cc38189ac25c26f66443e6e8cb0cea6b3587a4b300a02684b7fa9ed",
         "affectsGlobalScope": false
       },
       "../node_modules/.pnpm/@types/cheerio@0.22.28/node_modules/@types/cheerio/index.d.ts": {

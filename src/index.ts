@@ -3,6 +3,96 @@ import { toHiragana } from "@koozaki/romaji-conv";
 import * as FormData from "form-data";
 import * as cheerio from "cheerio";
 
+interface parameter_data {
+  Text: string;
+  Kana: string;
+  Speaker: {
+    Volume: number;
+    Speed: number;
+    Pitch: number;
+    Emphasis: number;
+    PauseMiddle: number;
+    PauseLong: number;
+    PauseSentence: number;
+  };
+  SpeakerSetting: {
+    VoiceDbName: string;
+    SpeakerName: string;
+  };
+}
+
+interface current_speaker {
+  voiceDbName: string;
+  speakerName: string;
+}
+
+interface voiceroid_daemon_config {
+  install_path?: string;
+  voiceroid_editor_exe?: string;
+  auth_code_seed?: string;
+  language_name?: { selected: boolean; value: string }[];
+  phrase_dictionary_path?: string;
+  word_dictionary_path?: string;
+  symbol_dictionary_path?: string;
+  kana_timeout?: string;
+  speech_timeout?: string;
+  listening_address?: string;
+}
+
+interface returns_list_available_speaker {
+  (address: string, port: number): Promise<
+    {
+      name: string;
+      roman: string;
+      voice_library: string;
+      selected: boolean;
+      emotion: boolean;
+      west: boolean;
+    }[]
+  >;
+}
+
+interface change_speaker {
+  (
+    address: string,
+    port: number,
+    voice_data: {
+      voiceDbName: string;
+      speakerName: string;
+    }
+  ): Promise<import("got/dist/source").Response<string>>;
+}
+
+interface convert_sentence_into_kana {
+  (address: string, port: number, parameter_data: parameter_data): Promise<
+    import("got/dist/source").Response<string>
+  >;
+}
+
+interface convert_sentence_into_voice {
+  (
+    address: string,
+    port: number,
+    parameter_data: parameter_data
+  ): import("got/dist/source/core").default;
+}
+
+interface get_authorization_code_seed_value {
+  (address: string, port: number): Promise<string>;
+}
+
+interface get_system_setting {
+  (address: string, port: number): Promise<voiceroid_daemon_config>;
+}
+
+interface set_system_setting {
+  (
+    address: string,
+    port: number,
+    config_json: voiceroid_daemon_config
+  ): Promise<string>;
+}
+
 /**
  * Home/SpeakerSetting
  * voiceroid_daemonで利用可能な話者の一覧を返す
@@ -10,23 +100,13 @@ import * as cheerio from "cheerio";
  * @param port voiceroid_daemonのポート
  * @returns 話者一覧
  */
-const returns_list_available_speaker = async (
-  address: string,
-  port: number
-): Promise<
-  {
-    name: string;
-    roman: string;
-    voice_library: string;
-    selected: boolean;
-    emotion: boolean;
-    west: boolean;
-  }[]
-> => {
-  const current_speaker: {
-    voiceDbName: string;
-    speakerName: string;
-  } = await got(`${address}:${port}/api/get/current_speaker`).json();
+const returns_list_available_speaker: returns_list_available_speaker = async (
+  address,
+  port
+) => {
+  const current_speaker: current_speaker = await got(
+    `${address}:${port}/api/get/current_speaker`
+  ).json();
   const speakers: [string, string] = await got(
     `${address}:${port}/api/get/speakers`
   ).json();
@@ -60,14 +140,7 @@ const returns_list_available_speaker = async (
  * @param voice_data 話者情報
  * @returns Response
  */
-const change_speaker = async (
-  address: string,
-  port: number,
-  voice_data: {
-    voiceDbName: string;
-    speakerName: string;
-  }
-): Promise<import("got/dist/source").Response<string>> =>
+const change_speaker: change_speaker = async (address, port, voice_data) =>
   await got.post(`${address}:${port}/api/set/speaker`, {
     method: "POST",
     json: voice_data,
@@ -81,13 +154,11 @@ const change_speaker = async (
  * @param parameter_data スピーチパラメータ
  * @returns Response
  */
-const convert_sentence_into_kana = async (
-  address: string,
-  port: number,
-  parameter_data: {
-    Text: string;
-  }
-): Promise<import("got/dist/source").Response<string>> =>
+const convert_sentence_into_kana: convert_sentence_into_kana = async (
+  address,
+  port,
+  parameter_data
+) =>
   await got.post(`${address}:${port}/api/converttext`, {
     method: "POST",
     json: parameter_data,
@@ -101,27 +172,11 @@ const convert_sentence_into_kana = async (
  * @param parameter_data スピーチパラメータ
  * @returns Response
  */
-const convert_sentence_into_voice = (
-  address: string,
-  port: number,
-  parameter_data: {
-    Text: string;
-    Kana: string;
-    Speaker: {
-      Volume: number;
-      Speed: number;
-      Pitch: number;
-      Emphasis: number;
-      PauseMiddle: number;
-      PauseLong: number;
-      PauseSentence: number;
-    };
-    SpeakerSetting: {
-      VoiceDbName: string;
-      SpeakerName: string;
-    };
-  }
-): import("got/dist/source/core").default =>
+const convert_sentence_into_voice: convert_sentence_into_voice = (
+  address,
+  port,
+  parameter_data
+) =>
   got.stream(`${address}:${port}/api/speechtext`, {
     method: "POST",
     json: parameter_data,
@@ -133,10 +188,10 @@ const convert_sentence_into_voice = (
  * @param port voiceroid_daemonのポート
  * @returns body
  */
-const get_authorization_code_seed_value = async (
-  address: string,
-  port: number
-): Promise<string> => {
+const get_authorization_code_seed_value: get_authorization_code_seed_value = async (
+  address,
+  port
+) => {
   const url = `${address}:${port}/api/getkey/VoiceroidEditor.exe`;
   const { body } = await got(url);
   if (!body) throw new Error("Failed to get");
@@ -147,23 +202,9 @@ const get_authorization_code_seed_value = async (
  * 設定内容を取得する。
  * @param address voiceroid_daemonのアドレス
  * @param port voiceroid_daemonのポート
- * @returns 
+ * @returns
  */
-const get_system_setting = async (
-  address: string,
-  port: number
-): Promise<{
-  install_path: string;
-  voiceroid_editor_exe: string;
-  auth_code_seed: string;
-  language_name: { selected: boolean; value: string }[];
-  phrase_dictionary_path: string;
-  word_dictionary_path: string;
-  symbol_dictionary_path: string;
-  kana_timeout: string;
-  speech_timeout: string;
-  listening_address: string;
-}> => {
+const get_system_setting: get_system_setting = async (address, port) => {
   const url = `${address}:${port}/Home/SystemSetting`;
   const { body } = await got(url);
   const $ = cheerio.load(body);
@@ -218,24 +259,13 @@ const get_system_setting = async (
  * @param address voiceroid_daemonのアドレス
  * @param port voiceroid_daemonのポート
  * @param config_json get_system_settingの取得できる内容
- * @returns 
+ * @returns
  */
-const set_system_setting = async (
-  address: string,
-  port: number,
-  config_json: {
-    install_path: string;
-    voiceroid_editor_exe: string;
-    auth_code_seed: string;
-    language_name: { selected: boolean; value: string }[];
-    phrase_dictionary_path: string;
-    word_dictionary_path: string;
-    symbol_dictionary_path: string;
-    kana_timeout: string;
-    speech_timeout: string;
-    listening_address: string;
-  }
-): Promise<string> => {
+const set_system_setting: set_system_setting = async (
+  address,
+  port,
+  config_json
+) => {
   const url = `${address}:${port}/Home/SystemSetting`;
   const current_data = await get_system_setting(address, port);
   const form = new FormData();
@@ -254,7 +284,7 @@ const set_system_setting = async (
   form.append(
     "LanguageName",
     config_json.language_name ||
-      current_data.language_name.filter(({ selected }) => selected)[0].value
+      current_data.language_name?.filter(({ selected }) => selected)[0].value
   );
   form.append(
     "PhraseDictionaryPath",

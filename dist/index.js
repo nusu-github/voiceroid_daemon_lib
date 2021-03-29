@@ -145,7 +145,7 @@ const set_system_setting = async (address, port, config_json) => {
     form.append("VoiceroidEditorExe", config_json.voiceroid_editor_exe || current_data.voiceroid_editor_exe);
     form.append("AuthCodeSeed", config_json.auth_code_seed || current_data.auth_code_seed);
     form.append("LanguageName", config_json.language_name ||
-        current_data.language_name.filter(({ selected }) => selected)[0].value);
+        current_data.language_name?.filter(({ selected }) => selected)[0].value);
     form.append("PhraseDictionaryPath", config_json.phrase_dictionary_path || current_data.phrase_dictionary_path);
     form.append("WordDictionaryPath", config_json.word_dictionary_path || current_data.word_dictionary_path);
     form.append("SymbolDictionaryPath", config_json.symbol_dictionary_path || current_data.symbol_dictionary_path);
