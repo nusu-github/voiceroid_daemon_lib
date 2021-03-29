@@ -70,3 +70,4 @@ typings/
 .next
 
 tsconfig.tsbuildinfo
+dist/tsconfig.tsbuildinfo

@@ -446,17 +446,17 @@
         "signature": "9c4c395e927045b324877acdc4bfb95f128f36bc9f073266a2f0342495075a4f",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/p-cancelable@2.1.0/node_modules/p-cancelable/index.d.ts": {
+      "../node_modules/p-cancelable/index.d.ts": {
         "version": "3563ec7b709c5adf97e8467fc1d0d117aac33ce90a8e7db61dcc9aa10a9f2fb6",
         "signature": "3563ec7b709c5adf97e8467fc1d0d117aac33ce90a8e7db61dcc9aa10a9f2fb6",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/@szmarczak/http-timer@4.0.5/node_modules/@szmarczak/http-timer/dist/source/index.d.ts": {
+      "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts": {
         "version": "7ab735672492614a1af2098219bd191642e2bbd126e0631e13ed15e947238a51",
         "signature": "7ab735672492614a1af2098219bd191642e2bbd126e0631e13ed15e947238a51",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/cacheable-lookup@5.0.4/node_modules/cacheable-lookup/index.d.ts": {
+      "../node_modules/cacheable-lookup/index.d.ts": {
         "version": "c77e2a25b0b7e23ad5b5087e16db5aeec6741dcc8e99b8aae1a6b58659083b6d",
         "signature": "c77e2a25b0b7e23ad5b5087e16db5aeec6741dcc8e99b8aae1a6b58659083b6d",
         "affectsGlobalScope": false
@@ -481,47 +481,47 @@
         "signature": "73c05cca1bb5aa8e93efd089af51643b7ff005e47064a0e624a74ee20480a2eb",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/timed-out.d.ts": {
+      "../node_modules/got/dist/source/core/utils/timed-out.d.ts": {
         "version": "e40f22ef14ca35f5019e16f852366d0880e42e955c03cc25da2abe689eef679c",
         "signature": "e40f22ef14ca35f5019e16f852366d0880e42e955c03cc25da2abe689eef679c",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/options-to-url.d.ts": {
+      "../node_modules/got/dist/source/core/utils/options-to-url.d.ts": {
         "version": "8d12345aee8dedececa587bb31701273a3088ba4f83e866cdfa26a05b3f36a13",
         "signature": "8d12345aee8dedececa587bb31701273a3088ba4f83e866cdfa26a05b3f36a13",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/dns-ip-version.d.ts": {
+      "../node_modules/got/dist/source/core/utils/dns-ip-version.d.ts": {
         "version": "01856d31c900d93d280293d98ec9ca9be4991ab3acd3216bf985513eba3544b8",
         "signature": "01856d31c900d93d280293d98ec9ca9be4991ab3acd3216bf985513eba3544b8",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/index.d.ts": {
+      "../node_modules/got/dist/source/core/index.d.ts": {
         "version": "c80e5bb2264a79bafa49cc34ad04b3354a1d72c75bbf5eb6ac580e327d48995a",
         "signature": "c80e5bb2264a79bafa49cc34ad04b3354a1d72c75bbf5eb6ac580e327d48995a",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/types.d.ts": {
+      "../node_modules/got/dist/source/as-promise/types.d.ts": {
         "version": "2c0d8c9cdea4f41f395b91f722ea0a18451c173ead39df01e4d4e82b80d26cff",
         "signature": "2c0d8c9cdea4f41f395b91f722ea0a18451c173ead39df01e4d4e82b80d26cff",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/index.d.ts": {
+      "../node_modules/got/dist/source/as-promise/index.d.ts": {
         "version": "576ec53c444adac3b7725ced6240de54a04183791fe9d7cc880de11411114ff2",
         "signature": "576ec53c444adac3b7725ced6240de54a04183791fe9d7cc880de11411114ff2",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/types.d.ts": {
+      "../node_modules/got/dist/source/types.d.ts": {
         "version": "a23796c344ad16236b13a283af0d7d519cb9e9c9ba406bad0cd04871c6c78c95",
         "signature": "a23796c344ad16236b13a283af0d7d519cb9e9c9ba406bad0cd04871c6c78c95",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/create.d.ts": {
+      "../node_modules/got/dist/source/create.d.ts": {
         "version": "b3e3394b5ffa583518ace1099d5df14cb887ec1578a023116fac4a35480d2b38",
         "signature": "b3e3394b5ffa583518ace1099d5df14cb887ec1578a023116fac4a35480d2b38",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/index.d.ts": {
+      "../node_modules/got/dist/source/index.d.ts": {
         "version": "ac3459d91154275b1cd916f265d0151fc4a4a3b3701b1c58cb7c32ea48a7aaec",
         "signature": "ac3459d91154275b1cd916f265d0151fc4a4a3b3701b1c58cb7c32ea48a7aaec",
         "affectsGlobalScope": false
@@ -531,99 +531,104 @@
         "signature": "c860be136a9c97e8edcda8ed1f4d26cb0e99b537b8c0d24d24d5a2a7c7f48fbf",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/form-data@4.0.0/node_modules/form-data/index.d.ts": {
+      "../node_modules/form-data/index.d.ts": {
         "version": "736097ddbb2903bef918bb3b5811ef1c9c5656f2a73bd39b22a91b9cc2525e50",
         "signature": "736097ddbb2903bef918bb3b5811ef1c9c5656f2a73bd39b22a91b9cc2525e50",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/domelementtype@2.1.0/node_modules/domelementtype/lib/index.d.ts": {
+      "../node_modules/domelementtype/lib/index.d.ts": {
         "version": "d830021c592127d10cf4fe2df16454df77dd180a36a590e0067deb8fbed11b2d",
         "signature": "d830021c592127d10cf4fe2df16454df77dd180a36a590e0067deb8fbed11b2d",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/node.d.ts": {
+      "../node_modules/domhandler/lib/node.d.ts": {
         "version": "107d6118ddf590494f2140d4293e512acc837ab545c1c08deb72c2921f4d5e10",
         "signature": "107d6118ddf590494f2140d4293e512acc837ab545c1c08deb72c2921f4d5e10",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts": {
+      "../node_modules/domhandler/lib/index.d.ts": {
         "version": "b3b8821ddedf72080a875eb9308bb1c5800606299f49a9b1e4f7c4e6ff20934f",
         "signature": "b3b8821ddedf72080a875eb9308bb1c5800606299f49a9b1e4f7c4e6ff20934f",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/tokenizer.d.ts": {
+      "../node_modules/htmlparser2/lib/tokenizer.d.ts": {
         "version": "97477a011d4d9813cea4a10dd0e2f8ffab55e4705d45cd12b88db6a50157e302",
         "signature": "97477a011d4d9813cea4a10dd0e2f8ffab55e4705d45cd12b88db6a50157e302",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/parser.d.ts": {
+      "../node_modules/htmlparser2/lib/parser.d.ts": {
         "version": "d341d39f8b1f377b8a8e15a1fb71ddba23a3b44c761a79a7cc3439bf1c4e81cb",
         "signature": "d341d39f8b1f377b8a8e15a1fb71ddba23a3b44c761a79a7cc3439bf1c4e81cb",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/feedhandler.d.ts": {
+      "../node_modules/htmlparser2/lib/feedhandler.d.ts": {
         "version": "d97b371df0bb35cf998992854ce00b020d3cdb31fd935496fe1e87dccf202565",
         "signature": "d97b371df0bb35cf998992854ce00b020d3cdb31fd935496fe1e87dccf202565",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/dom-serializer@1.2.0/node_modules/dom-serializer/lib/index.d.ts": {
+      "../node_modules/dom-serializer/lib/index.d.ts": {
         "version": "fa9a034e2449cfb088c469587cc46ece2a6f28f498ffd3572a53ff0b4bd2a2fe",
         "signature": "fa9a034e2449cfb088c469587cc46ece2a6f28f498ffd3572a53ff0b4bd2a2fe",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/stringify.d.ts": {
+      "../node_modules/domutils/lib/stringify.d.ts": {
         "version": "4d87f2d59f1ed190a7f87255662eeef0f0c36d9b22881a6b1469ac2913f25c7a",
         "signature": "4d87f2d59f1ed190a7f87255662eeef0f0c36d9b22881a6b1469ac2913f25c7a",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/traversal.d.ts": {
+      "../node_modules/domutils/lib/traversal.d.ts": {
         "version": "c32e79eb2aa71936c8f49891e54708685dc3ac0980cf73c84e59be2418d45599",
         "signature": "c32e79eb2aa71936c8f49891e54708685dc3ac0980cf73c84e59be2418d45599",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/manipulation.d.ts": {
+      "../node_modules/domutils/lib/manipulation.d.ts": {
         "version": "3742d984090f0e11aec15575beb7cf6dab0f138417d22f97ed5fd01d3be18c9e",
         "signature": "3742d984090f0e11aec15575beb7cf6dab0f138417d22f97ed5fd01d3be18c9e",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/querying.d.ts": {
+      "../node_modules/domutils/lib/querying.d.ts": {
         "version": "679b7e31877ecde1280ce1967d295a8e8122a10ea063e716c3391914d3b1abce",
         "signature": "679b7e31877ecde1280ce1967d295a8e8122a10ea063e716c3391914d3b1abce",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/legacy.d.ts": {
+      "../node_modules/domutils/lib/legacy.d.ts": {
         "version": "62e342f655f6ca3973555de7d85f45b6df00baf82179364095afde20043b0e2c",
         "signature": "62e342f655f6ca3973555de7d85f45b6df00baf82179364095afde20043b0e2c",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/helpers.d.ts": {
+      "../node_modules/domutils/lib/helpers.d.ts": {
         "version": "fc3847b4e7acd3b25e85968dafcbc8dc9869070f9266f6279df16e94eda03170",
         "signature": "fc3847b4e7acd3b25e85968dafcbc8dc9869070f9266f6279df16e94eda03170",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/tagtypes.d.ts": {
+      "../node_modules/domutils/lib/tagtypes.d.ts": {
         "version": "b3efcc465b38cb346799da01c18dada0ca5f150e52f87015d43e869b4d6bd099",
         "signature": "b3efcc465b38cb346799da01c18dada0ca5f150e52f87015d43e869b4d6bd099",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/index.d.ts": {
+      "../node_modules/domutils/lib/index.d.ts": {
         "version": "291b665413ae6943bb539f7268b62c8fd71929a654441e2bd02a55172e747764",
         "signature": "291b665413ae6943bb539f7268b62c8fd71929a654441e2bd02a55172e747764",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/index.d.ts": {
+      "../node_modules/htmlparser2/lib/index.d.ts": {
         "version": "bcf45cceed56bfc1679d68b1221534b997127f5b874087613e5d5e9592f402da",
         "signature": "bcf45cceed56bfc1679d68b1221534b997127f5b874087613e5d5e9592f402da",
         "affectsGlobalScope": false
       },
-      "../node_modules/.pnpm/cheerio@1.0.0-rc.5/node_modules/cheerio/types/index.d.ts": {
+      "../node_modules/cheerio/types/index.d.ts": {
         "version": "c3a2f14af88ebca3c9e0445aa8c14d1cf6fcebfdadf54a46e26c46959e368119",
         "signature": "c3a2f14af88ebca3c9e0445aa8c14d1cf6fcebfdadf54a46e26c46959e368119",
         "affectsGlobalScope": false
       },
+      "../src/type.ts": {
+        "version": "5343f8047ad20a78665d1462ddd065ac064b074da26165121e1d9b1743882fd0",
+        "signature": "9539e8e9e4ea1d38582516db0eced768b40c5f231a32e3446289424986dc949a",
+        "affectsGlobalScope": false
+      },
       "../src/index.ts": {
-        "version": "fa30f620b68aea1eca125ef63f34361194d8e0122bfaf30196759ba722093613",
-        "signature": "3722f2bd2cc38189ac25c26f66443e6e8cb0cea6b3587a4b300a02684b7fa9ed",
+        "version": "063557d65bf29d91de071750bb3238bf769c8f81cae40e604fddcde2037adadf",
+        "signature": "5c7d6b3c5f53858fa78d60217c5643023f4693b794777997d88e68073c6316a5",
         "affectsGlobalScope": false
       },
       "../node_modules/.pnpm/@types/cheerio@0.22.28/node_modules/@types/cheerio/index.d.ts": {
@@ -643,25 +648,34 @@
       }
     },
     "options": {
-      "moduleResolution": 2,
-      "target": 7,
       "module": 1,
-      "outDir": "./",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "target": 7,
       "strict": true,
       "declaration": true,
       "forceConsistentCasingInFileNames": true,
-      "pretty": true,
-      "newLine": 1,
-      "skipLibCheck": true,
-      "sourceMap": true,
       "incremental": true,
+      "newLine": 1,
+      "noImplicitReturns": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "pretty": true,
+      "skipLibCheck": true,
+      "moduleResolution": 2,
+      "sourceMap": true,
+      "outDir": "./",
+      "baseUrl": "..",
+      "paths": {
+        "*": [
+          "node_modules/*",
+          "src/types/*"
+        ]
+      },
+      "pathsBasePath": "C:/Users/bimii/development/voiceroid_daemon_lib",
       "configFilePath": "../tsconfig.json"
     },
     "referencedMap": {
-      "../node_modules/.pnpm/@szmarczak/http-timer@4.0.5/node_modules/@szmarczak/http-timer/dist/source/index.d.ts": [
-        "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts",
-        "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts"
-      ],
       "../node_modules/.pnpm/@types/cacheable-request@6.0.1/node_modules/@types/cacheable-request/index.d.ts": [
         "../node_modules/.pnpm/@types/http-cache-semantics@4.0.0/node_modules/@types/http-cache-semantics/index.d.ts",
         "../node_modules/.pnpm/@types/keyv@3.1.1/node_modules/@types/keyv/index.d.ts",
@@ -911,70 +925,73 @@
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/stream.d.ts"
       ],
-      "../node_modules/.pnpm/cacheable-lookup@5.0.4/node_modules/cacheable-lookup/index.d.ts": [
+      "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts": [
+        "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts",
+        "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/cacheable-lookup/index.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/dns.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts"
       ],
-      "../node_modules/.pnpm/cheerio@1.0.0-rc.5/node_modules/cheerio/types/index.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts",
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/index.d.ts"
+      "../node_modules/cheerio/types/index.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts",
+        "../node_modules/htmlparser2/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/dom-serializer@1.2.0/node_modules/dom-serializer/lib/index.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/dom-serializer/lib/index.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/node.d.ts"
+      "../node_modules/domhandler/lib/index.d.ts": [
+        "../node_modules/domhandler/lib/node.d.ts"
       ],
-      "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/node.d.ts": [
-        "../node_modules/.pnpm/domelementtype@2.1.0/node_modules/domelementtype/lib/index.d.ts"
+      "../node_modules/domhandler/lib/node.d.ts": [
+        "../node_modules/domelementtype/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/helpers.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/helpers.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/index.d.ts": [
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/helpers.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/legacy.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/manipulation.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/querying.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/stringify.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/tagtypes.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/traversal.d.ts"
+      "../node_modules/domutils/lib/index.d.ts": [
+        "../node_modules/domutils/lib/helpers.d.ts",
+        "../node_modules/domutils/lib/legacy.d.ts",
+        "../node_modules/domutils/lib/manipulation.d.ts",
+        "../node_modules/domutils/lib/querying.d.ts",
+        "../node_modules/domutils/lib/stringify.d.ts",
+        "../node_modules/domutils/lib/tagtypes.d.ts",
+        "../node_modules/domutils/lib/traversal.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/legacy.d.ts": [
-        "../node_modules/.pnpm/domelementtype@2.1.0/node_modules/domelementtype/lib/index.d.ts",
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/legacy.d.ts": [
+        "../node_modules/domelementtype/lib/index.d.ts",
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/manipulation.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/manipulation.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/querying.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/querying.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/stringify.d.ts": [
-        "../node_modules/.pnpm/dom-serializer@1.2.0/node_modules/dom-serializer/lib/index.d.ts",
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/stringify.d.ts": [
+        "../node_modules/dom-serializer/lib/index.d.ts",
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/tagtypes.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/tagtypes.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/traversal.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/traversal.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/form-data@4.0.0/node_modules/form-data/index.d.ts": [
+      "../node_modules/form-data/index.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/stream.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/index.d.ts": [
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/types.d.ts"
+      "../node_modules/got/dist/source/as-promise/index.d.ts": [
+        "../node_modules/got/dist/source/as-promise/types.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/types.d.ts": [
+      "../node_modules/got/dist/source/as-promise/types.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/index.d.ts",
-        "../node_modules/.pnpm/p-cancelable@2.1.0/node_modules/p-cancelable/index.d.ts"
+        "../node_modules/got/dist/source/core/index.d.ts",
+        "../node_modules/p-cancelable/index.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/index.d.ts": [
-        "../node_modules/.pnpm/@szmarczak/http-timer@4.0.5/node_modules/@szmarczak/http-timer/dist/source/index.d.ts",
+      "../node_modules/got/dist/source/core/index.d.ts": [
         "../node_modules/.pnpm/@types/cacheable-request@6.0.1/node_modules/@types/cacheable-request/index.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/https.d.ts",
@@ -984,61 +1001,62 @@
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/tls.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/url.d.ts",
         "../node_modules/.pnpm/@types/responselike@1.0.0/node_modules/@types/responselike/index.d.ts",
-        "../node_modules/.pnpm/cacheable-lookup@5.0.4/node_modules/cacheable-lookup/index.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/types.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/dns-ip-version.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/options-to-url.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/timed-out.d.ts"
+        "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts",
+        "../node_modules/cacheable-lookup/index.d.ts",
+        "../node_modules/got/dist/source/as-promise/types.d.ts",
+        "../node_modules/got/dist/source/core/utils/dns-ip-version.d.ts",
+        "../node_modules/got/dist/source/core/utils/options-to-url.d.ts",
+        "../node_modules/got/dist/source/core/utils/timed-out.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/options-to-url.d.ts": [
+      "../node_modules/got/dist/source/core/utils/options-to-url.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/url.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/timed-out.d.ts": [
+      "../node_modules/got/dist/source/core/utils/timed-out.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/create.d.ts": [
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/types.d.ts"
+      "../node_modules/got/dist/source/create.d.ts": [
+        "../node_modules/got/dist/source/types.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/index.d.ts": [
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/index.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/create.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/types.d.ts"
+      "../node_modules/got/dist/source/index.d.ts": [
+        "../node_modules/got/dist/source/as-promise/index.d.ts",
+        "../node_modules/got/dist/source/create.d.ts",
+        "../node_modules/got/dist/source/types.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/types.d.ts": [
+      "../node_modules/got/dist/source/types.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/url.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/index.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/index.d.ts",
-        "../node_modules/.pnpm/p-cancelable@2.1.0/node_modules/p-cancelable/index.d.ts"
+        "../node_modules/got/dist/source/as-promise/index.d.ts",
+        "../node_modules/got/dist/source/core/index.d.ts",
+        "../node_modules/p-cancelable/index.d.ts"
       ],
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/feedhandler.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts",
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/parser.d.ts"
+      "../node_modules/htmlparser2/lib/feedhandler.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts",
+        "../node_modules/htmlparser2/lib/parser.d.ts"
       ],
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/index.d.ts": [
-        "../node_modules/.pnpm/domelementtype@2.1.0/node_modules/domelementtype/lib/index.d.ts",
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/index.d.ts",
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/feedhandler.d.ts",
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/parser.d.ts",
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/tokenizer.d.ts"
+      "../node_modules/htmlparser2/lib/index.d.ts": [
+        "../node_modules/domelementtype/lib/index.d.ts",
+        "../node_modules/domhandler/lib/index.d.ts",
+        "../node_modules/domutils/lib/index.d.ts",
+        "../node_modules/htmlparser2/lib/feedhandler.d.ts",
+        "../node_modules/htmlparser2/lib/parser.d.ts",
+        "../node_modules/htmlparser2/lib/tokenizer.d.ts"
       ],
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/parser.d.ts": [
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/tokenizer.d.ts"
+      "../node_modules/htmlparser2/lib/parser.d.ts": [
+        "../node_modules/htmlparser2/lib/tokenizer.d.ts"
       ],
       "../src/index.ts": [
         "../node_modules/.pnpm/@types/cheerio@0.22.28/node_modules/@types/cheerio/index.d.ts",
         "../node_modules/.pnpm/@types/koozaki__romaji-conv@2.0.0/node_modules/@types/koozaki__romaji-conv/index.d.ts",
-        "../node_modules/.pnpm/form-data@4.0.0/node_modules/form-data/index.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/index.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/index.d.ts"
+        "../node_modules/form-data/index.d.ts",
+        "../node_modules/got/dist/source/index.d.ts",
+        "../src/type.ts"
+      ],
+      "../src/type.ts": [
+        "../node_modules/got/dist/source/core/index.d.ts",
+        "../node_modules/got/dist/source/index.d.ts"
       ]
     },
     "exportedModulesMap": {
-      "../node_modules/.pnpm/@szmarczak/http-timer@4.0.5/node_modules/@szmarczak/http-timer/dist/source/index.d.ts": [
-        "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts",
-        "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts"
-      ],
       "../node_modules/.pnpm/@types/cacheable-request@6.0.1/node_modules/@types/cacheable-request/index.d.ts": [
         "../node_modules/.pnpm/@types/http-cache-semantics@4.0.0/node_modules/@types/http-cache-semantics/index.d.ts",
         "../node_modules/.pnpm/@types/keyv@3.1.1/node_modules/@types/keyv/index.d.ts",
@@ -1288,70 +1306,73 @@
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/stream.d.ts"
       ],
-      "../node_modules/.pnpm/cacheable-lookup@5.0.4/node_modules/cacheable-lookup/index.d.ts": [
+      "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts": [
+        "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts",
+        "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts"
+      ],
+      "../node_modules/cacheable-lookup/index.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/dns.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts"
       ],
-      "../node_modules/.pnpm/cheerio@1.0.0-rc.5/node_modules/cheerio/types/index.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts",
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/index.d.ts"
+      "../node_modules/cheerio/types/index.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts",
+        "../node_modules/htmlparser2/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/dom-serializer@1.2.0/node_modules/dom-serializer/lib/index.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/dom-serializer/lib/index.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/node.d.ts"
+      "../node_modules/domhandler/lib/index.d.ts": [
+        "../node_modules/domhandler/lib/node.d.ts"
       ],
-      "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/node.d.ts": [
-        "../node_modules/.pnpm/domelementtype@2.1.0/node_modules/domelementtype/lib/index.d.ts"
+      "../node_modules/domhandler/lib/node.d.ts": [
+        "../node_modules/domelementtype/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/helpers.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/helpers.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/index.d.ts": [
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/helpers.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/legacy.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/manipulation.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/querying.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/stringify.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/tagtypes.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/traversal.d.ts"
+      "../node_modules/domutils/lib/index.d.ts": [
+        "../node_modules/domutils/lib/helpers.d.ts",
+        "../node_modules/domutils/lib/legacy.d.ts",
+        "../node_modules/domutils/lib/manipulation.d.ts",
+        "../node_modules/domutils/lib/querying.d.ts",
+        "../node_modules/domutils/lib/stringify.d.ts",
+        "../node_modules/domutils/lib/tagtypes.d.ts",
+        "../node_modules/domutils/lib/traversal.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/legacy.d.ts": [
-        "../node_modules/.pnpm/domelementtype@2.1.0/node_modules/domelementtype/lib/index.d.ts",
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/legacy.d.ts": [
+        "../node_modules/domelementtype/lib/index.d.ts",
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/manipulation.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/manipulation.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/querying.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/querying.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/stringify.d.ts": [
-        "../node_modules/.pnpm/dom-serializer@1.2.0/node_modules/dom-serializer/lib/index.d.ts",
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/stringify.d.ts": [
+        "../node_modules/dom-serializer/lib/index.d.ts",
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/tagtypes.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/tagtypes.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/traversal.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts"
+      "../node_modules/domutils/lib/traversal.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts"
       ],
-      "../node_modules/.pnpm/form-data@4.0.0/node_modules/form-data/index.d.ts": [
+      "../node_modules/form-data/index.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/stream.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/index.d.ts": [
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/types.d.ts"
+      "../node_modules/got/dist/source/as-promise/index.d.ts": [
+        "../node_modules/got/dist/source/as-promise/types.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/types.d.ts": [
+      "../node_modules/got/dist/source/as-promise/types.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/index.d.ts",
-        "../node_modules/.pnpm/p-cancelable@2.1.0/node_modules/p-cancelable/index.d.ts"
+        "../node_modules/got/dist/source/core/index.d.ts",
+        "../node_modules/p-cancelable/index.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/index.d.ts": [
-        "../node_modules/.pnpm/@szmarczak/http-timer@4.0.5/node_modules/@szmarczak/http-timer/dist/source/index.d.ts",
+      "../node_modules/got/dist/source/core/index.d.ts": [
         "../node_modules/.pnpm/@types/cacheable-request@6.0.1/node_modules/@types/cacheable-request/index.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/https.d.ts",
@@ -1361,55 +1382,58 @@
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/tls.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/url.d.ts",
         "../node_modules/.pnpm/@types/responselike@1.0.0/node_modules/@types/responselike/index.d.ts",
-        "../node_modules/.pnpm/cacheable-lookup@5.0.4/node_modules/cacheable-lookup/index.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/types.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/dns-ip-version.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/options-to-url.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/timed-out.d.ts"
+        "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts",
+        "../node_modules/cacheable-lookup/index.d.ts",
+        "../node_modules/got/dist/source/as-promise/types.d.ts",
+        "../node_modules/got/dist/source/core/utils/dns-ip-version.d.ts",
+        "../node_modules/got/dist/source/core/utils/options-to-url.d.ts",
+        "../node_modules/got/dist/source/core/utils/timed-out.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/options-to-url.d.ts": [
+      "../node_modules/got/dist/source/core/utils/options-to-url.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/url.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/timed-out.d.ts": [
+      "../node_modules/got/dist/source/core/utils/timed-out.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/http.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/create.d.ts": [
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/types.d.ts"
+      "../node_modules/got/dist/source/create.d.ts": [
+        "../node_modules/got/dist/source/types.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/index.d.ts": [
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/index.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/create.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/types.d.ts"
+      "../node_modules/got/dist/source/index.d.ts": [
+        "../node_modules/got/dist/source/as-promise/index.d.ts",
+        "../node_modules/got/dist/source/create.d.ts",
+        "../node_modules/got/dist/source/types.d.ts"
       ],
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/types.d.ts": [
+      "../node_modules/got/dist/source/types.d.ts": [
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/index.d.ts",
         "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/url.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/index.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/index.d.ts",
-        "../node_modules/.pnpm/p-cancelable@2.1.0/node_modules/p-cancelable/index.d.ts"
+        "../node_modules/got/dist/source/as-promise/index.d.ts",
+        "../node_modules/got/dist/source/core/index.d.ts",
+        "../node_modules/p-cancelable/index.d.ts"
       ],
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/feedhandler.d.ts": [
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts",
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/parser.d.ts"
+      "../node_modules/htmlparser2/lib/feedhandler.d.ts": [
+        "../node_modules/domhandler/lib/index.d.ts",
+        "../node_modules/htmlparser2/lib/parser.d.ts"
       ],
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/index.d.ts": [
-        "../node_modules/.pnpm/domelementtype@2.1.0/node_modules/domelementtype/lib/index.d.ts",
-        "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts",
-        "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/index.d.ts",
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/feedhandler.d.ts",
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/parser.d.ts",
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/tokenizer.d.ts"
+      "../node_modules/htmlparser2/lib/index.d.ts": [
+        "../node_modules/domelementtype/lib/index.d.ts",
+        "../node_modules/domhandler/lib/index.d.ts",
+        "../node_modules/domutils/lib/index.d.ts",
+        "../node_modules/htmlparser2/lib/feedhandler.d.ts",
+        "../node_modules/htmlparser2/lib/parser.d.ts",
+        "../node_modules/htmlparser2/lib/tokenizer.d.ts"
       ],
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/parser.d.ts": [
-        "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/tokenizer.d.ts"
+      "../node_modules/htmlparser2/lib/parser.d.ts": [
+        "../node_modules/htmlparser2/lib/tokenizer.d.ts"
       ],
       "../src/index.ts": [
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/index.d.ts",
-        "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/index.d.ts"
+        "../src/type.ts"
+      ],
+      "../src/type.ts": [
+        "../node_modules/got/dist/source/core/index.d.ts",
+        "../node_modules/got/dist/source/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
-      "../node_modules/.pnpm/@szmarczak/http-timer@4.0.5/node_modules/@szmarczak/http-timer/dist/source/index.d.ts",
       "../node_modules/.pnpm/@types/cacheable-request@6.0.1/node_modules/@types/cacheable-request/index.d.ts",
       "../node_modules/.pnpm/@types/cheerio@0.22.28/node_modules/@types/cheerio/index.d.ts",
       "../node_modules/.pnpm/@types/http-cache-semantics@4.0.0/node_modules/@types/http-cache-semantics/index.d.ts",
@@ -1464,35 +1488,6 @@
       "../node_modules/.pnpm/@types/node@14.14.37/node_modules/@types/node/zlib.d.ts",
       "../node_modules/.pnpm/@types/responselike@1.0.0/node_modules/@types/responselike/index.d.ts",
       "../node_modules/.pnpm/@types/validatorjs@3.15.0/node_modules/@types/validatorjs/index.d.ts",
-      "../node_modules/.pnpm/cacheable-lookup@5.0.4/node_modules/cacheable-lookup/index.d.ts",
-      "../node_modules/.pnpm/cheerio@1.0.0-rc.5/node_modules/cheerio/types/index.d.ts",
-      "../node_modules/.pnpm/dom-serializer@1.2.0/node_modules/dom-serializer/lib/index.d.ts",
-      "../node_modules/.pnpm/domelementtype@2.1.0/node_modules/domelementtype/lib/index.d.ts",
-      "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/index.d.ts",
-      "../node_modules/.pnpm/domhandler@4.0.0/node_modules/domhandler/lib/node.d.ts",
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/helpers.d.ts",
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/index.d.ts",
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/legacy.d.ts",
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/manipulation.d.ts",
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/querying.d.ts",
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/stringify.d.ts",
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/tagtypes.d.ts",
-      "../node_modules/.pnpm/domutils@2.5.0/node_modules/domutils/lib/traversal.d.ts",
-      "../node_modules/.pnpm/form-data@4.0.0/node_modules/form-data/index.d.ts",
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/index.d.ts",
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/as-promise/types.d.ts",
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/index.d.ts",
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/dns-ip-version.d.ts",
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/options-to-url.d.ts",
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/core/utils/timed-out.d.ts",
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/create.d.ts",
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/index.d.ts",
-      "../node_modules/.pnpm/got@11.8.2/node_modules/got/dist/source/types.d.ts",
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/feedhandler.d.ts",
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/index.d.ts",
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/parser.d.ts",
-      "../node_modules/.pnpm/htmlparser2@6.0.1/node_modules/htmlparser2/lib/tokenizer.d.ts",
-      "../node_modules/.pnpm/p-cancelable@2.1.0/node_modules/p-cancelable/index.d.ts",
       "../node_modules/.pnpm/typescript@4.2.3/node_modules/typescript/lib/lib.dom.d.ts",
       "../node_modules/.pnpm/typescript@4.2.3/node_modules/typescript/lib/lib.dom.iterable.d.ts",
       "../node_modules/.pnpm/typescript@4.2.3/node_modules/typescript/lib/lib.es2015.collection.d.ts",
@@ -1536,7 +1531,38 @@
       "../node_modules/.pnpm/typescript@4.2.3/node_modules/typescript/lib/lib.esnext.intl.d.ts",
       "../node_modules/.pnpm/typescript@4.2.3/node_modules/typescript/lib/lib.scripthost.d.ts",
       "../node_modules/.pnpm/typescript@4.2.3/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
-      "../src/index.ts"
+      "../node_modules/@szmarczak/http-timer/dist/source/index.d.ts",
+      "../node_modules/cacheable-lookup/index.d.ts",
+      "../node_modules/cheerio/types/index.d.ts",
+      "../node_modules/dom-serializer/lib/index.d.ts",
+      "../node_modules/domelementtype/lib/index.d.ts",
+      "../node_modules/domhandler/lib/index.d.ts",
+      "../node_modules/domhandler/lib/node.d.ts",
+      "../node_modules/domutils/lib/helpers.d.ts",
+      "../node_modules/domutils/lib/index.d.ts",
+      "../node_modules/domutils/lib/legacy.d.ts",
+      "../node_modules/domutils/lib/manipulation.d.ts",
+      "../node_modules/domutils/lib/querying.d.ts",
+      "../node_modules/domutils/lib/stringify.d.ts",
+      "../node_modules/domutils/lib/tagtypes.d.ts",
+      "../node_modules/domutils/lib/traversal.d.ts",
+      "../node_modules/form-data/index.d.ts",
+      "../node_modules/got/dist/source/as-promise/index.d.ts",
+      "../node_modules/got/dist/source/as-promise/types.d.ts",
+      "../node_modules/got/dist/source/core/index.d.ts",
+      "../node_modules/got/dist/source/core/utils/dns-ip-version.d.ts",
+      "../node_modules/got/dist/source/core/utils/options-to-url.d.ts",
+      "../node_modules/got/dist/source/core/utils/timed-out.d.ts",
+      "../node_modules/got/dist/source/create.d.ts",
+      "../node_modules/got/dist/source/index.d.ts",
+      "../node_modules/got/dist/source/types.d.ts",
+      "../node_modules/htmlparser2/lib/feedhandler.d.ts",
+      "../node_modules/htmlparser2/lib/index.d.ts",
+      "../node_modules/htmlparser2/lib/parser.d.ts",
+      "../node_modules/htmlparser2/lib/tokenizer.d.ts",
+      "../node_modules/p-cancelable/index.d.ts",
+      "../src/index.ts",
+      "../src/type.ts"
     ]
   },
   "version": "4.2.3"

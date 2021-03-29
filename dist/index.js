@@ -1,8 +1,30 @@
 "use strict";
-const got_1 = require("got");
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+const got_1 = __importDefault(require("got"));
 const romaji_conv_1 = require("@koozaki/romaji-conv");
 const FormData = require("form-data");
-const cheerio = require("cheerio");
+const cheerio = __importStar(require("cheerio"));
 /**
  * Home/SpeakerSetting
  * voiceroid_daemonで利用可能な話者の一覧を返す
@@ -88,9 +110,10 @@ const get_system_setting = async (address, port) => {
     const url = `${address}:${port}/Home/SystemSetting`;
     const { body } = await got_1.default(url);
     const $ = cheerio.load(body);
-    const install_path = $("#InstallPath").val();
-    const voiceroid_editor_exe = $("#VoiceroidEditorExe").val();
     const auth_code_seed = $("#AuthCodeSeed").val();
+    const cors_addresses = $("#CorsAddresses").val();
+    const install_path = $("#InstallPath").val();
+    const kana_timeout = $("#KanaTimeout").val();
     const language_name = [
         {
             selected: ($("#LanguageName > option:nth-child(1)").attr("selected") && true) ||
@@ -108,23 +131,26 @@ const get_system_setting = async (address, port) => {
             value: $("#LanguageName > option:nth-child(3)").val(),
         },
     ];
-    const phrase_dictionary_path = $("#PhraseDictionaryPath").val();
-    const word_dictionary_path = $("#WordDictionaryPath").val();
-    const symbol_dictionary_path = $("#SymbolDictionaryPath").val();
-    const kana_timeout = $("#KanaTimeout").val();
-    const speech_timeout = $("#SpeechTimeout").val();
     const listening_address = $("#ListeningAddress").val();
+    const phrase_dictionary_path = $("#PhraseDictionaryPath").val();
+    const setting_file_path = $("#setting_file_path").val();
+    const speech_timeout = $("#SpeechTimeout").val();
+    const symbol_dictionary_path = $("#SymbolDictionaryPath").val();
+    const voiceroid_editor_exe = $("#VoiceroidEditorExe").val();
+    const word_dictionary_path = $("#WordDictionaryPath").val();
     return {
-        install_path,
-        voiceroid_editor_exe,
         auth_code_seed,
-        language_name,
-        phrase_dictionary_path,
-        word_dictionary_path,
-        symbol_dictionary_path,
+        cors_addresses,
+        install_path,
         kana_timeout,
-        speech_timeout,
+        language_name,
         listening_address,
+        phrase_dictionary_path,
+        setting_file_path,
+        speech_timeout,
+        symbol_dictionary_path,
+        voiceroid_editor_exe,
+        word_dictionary_path,
     };
 };
 /**

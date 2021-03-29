@@ -1,97 +1,17 @@
 import got from "got";
 import { toHiragana } from "@koozaki/romaji-conv";
-import * as FormData from "form-data";
+import FormData = require("form-data");
 import * as cheerio from "cheerio";
-
-interface parameter_data {
-  Text: string;
-  Kana: string;
-  Speaker: {
-    Volume: number;
-    Speed: number;
-    Pitch: number;
-    Emphasis: number;
-    PauseMiddle: number;
-    PauseLong: number;
-    PauseSentence: number;
-  };
-  SpeakerSetting: {
-    VoiceDbName: string;
-    SpeakerName: string;
-  };
-}
-
-interface current_speaker {
-  voiceDbName: string;
-  speakerName: string;
-}
-
-interface voiceroid_daemon_config {
-  install_path?: string;
-  voiceroid_editor_exe?: string;
-  auth_code_seed?: string;
-  language_name?: { selected: boolean; value: string }[];
-  phrase_dictionary_path?: string;
-  word_dictionary_path?: string;
-  symbol_dictionary_path?: string;
-  kana_timeout?: string;
-  speech_timeout?: string;
-  listening_address?: string;
-}
-
-interface returns_list_available_speaker {
-  (address: string, port: number): Promise<
-    {
-      name: string;
-      roman: string;
-      voice_library: string;
-      selected: boolean;
-      emotion: boolean;
-      west: boolean;
-    }[]
-  >;
-}
-
-interface change_speaker {
-  (
-    address: string,
-    port: number,
-    voice_data: {
-      voiceDbName: string;
-      speakerName: string;
-    }
-  ): Promise<import("got/dist/source").Response<string>>;
-}
-
-interface convert_sentence_into_kana {
-  (address: string, port: number, parameter_data: parameter_data): Promise<
-    import("got/dist/source").Response<string>
-  >;
-}
-
-interface convert_sentence_into_voice {
-  (
-    address: string,
-    port: number,
-    parameter_data: parameter_data
-  ): import("got/dist/source/core").default;
-}
-
-interface get_authorization_code_seed_value {
-  (address: string, port: number): Promise<string>;
-}
-
-interface get_system_setting {
-  (address: string, port: number): Promise<voiceroid_daemon_config>;
-}
-
-interface set_system_setting {
-  (
-    address: string,
-    port: number,
-    config_json: voiceroid_daemon_config
-  ): Promise<string>;
-}
+import {
+  change_speaker,
+  convert_sentence_into_kana,
+  convert_sentence_into_voice,
+  current_speaker,
+  get_authorization_code_seed_value,
+  get_system_setting,
+  returns_list_available_speaker,
+  set_system_setting,
+} from "./type";
 
 /**
  * Home/SpeakerSetting
@@ -208,9 +128,10 @@ const get_system_setting: get_system_setting = async (address, port) => {
   const url = `${address}:${port}/Home/SystemSetting`;
   const { body } = await got(url);
   const $ = cheerio.load(body);
-  const install_path = $("#InstallPath").val();
-  const voiceroid_editor_exe = $("#VoiceroidEditorExe").val();
   const auth_code_seed = $("#AuthCodeSeed").val();
+  const cors_addresses = $("#CorsAddresses").val();
+  const install_path = $("#InstallPath").val();
+  const kana_timeout = $("#KanaTimeout").val();
   const language_name = [
     {
       selected:
@@ -231,23 +152,26 @@ const get_system_setting: get_system_setting = async (address, port) => {
       value: $("#LanguageName > option:nth-child(3)").val(),
     },
   ];
-  const phrase_dictionary_path = $("#PhraseDictionaryPath").val();
-  const word_dictionary_path = $("#WordDictionaryPath").val();
-  const symbol_dictionary_path = $("#SymbolDictionaryPath").val();
-  const kana_timeout = $("#KanaTimeout").val();
-  const speech_timeout = $("#SpeechTimeout").val();
   const listening_address = $("#ListeningAddress").val();
+  const phrase_dictionary_path = $("#PhraseDictionaryPath").val();
+  const setting_file_path = $("#setting_file_path").val();
+  const speech_timeout = $("#SpeechTimeout").val();
+  const symbol_dictionary_path = $("#SymbolDictionaryPath").val();
+  const voiceroid_editor_exe = $("#VoiceroidEditorExe").val();
+  const word_dictionary_path = $("#WordDictionaryPath").val();
   return {
-    install_path,
-    voiceroid_editor_exe,
     auth_code_seed,
-    language_name,
-    phrase_dictionary_path,
-    word_dictionary_path,
-    symbol_dictionary_path,
+    cors_addresses,
+    install_path,
     kana_timeout,
-    speech_timeout,
+    language_name,
     listening_address,
+    phrase_dictionary_path,
+    setting_file_path,
+    speech_timeout,
+    symbol_dictionary_path,
+    voiceroid_editor_exe,
+    word_dictionary_path,
   };
 };
 
