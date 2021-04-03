@@ -69,5 +69,4 @@ typings/
 .env
 .next
 
-tsconfig.tsbuildinfo
 dist/tsconfig.tsbuildinfo

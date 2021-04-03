@@ -44,24 +44,3 @@ export interface speaker_list {
     emotion: boolean;
     west: boolean;
 }
-export interface returns_list_available_speaker {
-    (address: string, port: number): Promise<speaker_list[]>;
-}
-export interface change_speaker {
-    (address: string, port: number, voice_data: current_speaker): Promise<import("got/dist/source").Response<string>>;
-}
-export interface convert_sentence_into_kana {
-    (address: string, port: number, parameter_data: parameter_data): Promise<import("got/dist/source").Response<string>>;
-}
-export interface convert_sentence_into_voice {
-    (address: string, port: number, parameter_data: parameter_data): import("got/dist/source/core").default;
-}
-export interface get_authorization_code_seed_value {
-    (address: string, port: number): Promise<string>;
-}
-export interface get_system_setting {
-    (address: string, port: number): Promise<voiceroid_daemon_config>;
-}
-export interface set_system_setting {
-    (address: string, port: number, config_json: voiceroid_daemon_config): Promise<string>;
-}
