@@ -1,4 +1,4 @@
-import { current_speaker, parameter_data, speaker_list, voiceroid_daemon_config } from "./type";
+import { current_speaker, parameter_data, speaker_list, voiceroid_daemon_config } from './type';
 declare class voiceroid_daemon {
     url_list: {
         converttext: string;
@@ -31,7 +31,7 @@ declare class voiceroid_daemon {
      * @param parameter_data スピーチパラメータ
      * @returns 音声データのstream
      */
-    convert_text_voice(parameter_data: parameter_data): import("got/dist/source/core").default;
+    convert_text_voice(parameter_data: parameter_data): import('got/dist/source/core').default;
     /**
      * 認証コードのシード値を取得します。(ホストのマシンでVOICEROID2を起動した状態で実行してください。)
      * @returns 認証コードのシード値

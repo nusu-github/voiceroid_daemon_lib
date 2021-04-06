@@ -1,13 +1,13 @@
-import { toHiragana } from "@koozaki/romaji-conv";
-import * as cheerio from "cheerio";
-import got from "got";
+import { toHiragana } from '@koozaki/romaji-conv';
+import cheerio from 'cheerio';
+import got from 'got';
 import {
   current_speaker,
   parameter_data,
   speaker_list,
   voiceroid_daemon_config
-} from "./type";
-import FormData = require("form-data");
+} from './type';
+import FormData = require('form-data');
 
 class voiceroid_daemon {
   url_list: {
@@ -38,9 +38,9 @@ class voiceroid_daemon {
    * @returns 話者一覧
    */
   async speakers(): Promise<speaker_list[]> {
-    const url_list = this.url_list;
+    const { url_list } = this;
     const current_speaker: current_speaker = await got(
-      url_list.current_speaker
+      url_list.current_speaker,
     ).json();
     const speakers: [string, string] = await got(url_list.speakers).json();
     const list = Object.entries(speakers)
@@ -48,11 +48,11 @@ class voiceroid_daemon {
         const search_west = /_west_/;
         const search_emo = /_emo_/;
         return {
-          name: `${toHiragana(voiceDbName.replace(/_.*/, ""))}${
-            (search_west.exec(voiceDbName) && " 関西弁") || ""
+          name: `${toHiragana(voiceDbName.replace(/_.*/, ''))}${
+            (search_west.exec(voiceDbName) && ' 関西弁') || ''
           }`.trim(),
-          roman: `${voiceDbName.replace(/_.*/, "")}${
-            (search_west.exec(voiceDbName) && "_west") || ""
+          roman: `${voiceDbName.replace(/_.*/, '')}${
+            (search_west.exec(voiceDbName) && '_west') || ''
           }`,
           voice_library: speakerName[0],
           selected:
@@ -70,12 +70,11 @@ class voiceroid_daemon {
    * @param speaker_data 話者情報
    */
   async set_speaker(speaker_data: current_speaker): Promise<void> {
-    const url_list = this.url_list;
+    const { url_list } = this;
     await got.post(url_list.speaker, {
-      method: "POST",
+      method: 'POST',
       json: speaker_data,
     });
-    return;
   }
 
   /**
@@ -84,9 +83,9 @@ class voiceroid_daemon {
    * @returns 読み仮名
    */
   async convert_text_kana(parameter_data: parameter_data): Promise<string> {
-    const url_list = this.url_list;
+    const { url_list } = this;
     const { body } = await got.post(url_list.converttext, {
-      method: "POST",
+      method: 'POST',
       json: parameter_data,
     });
     return body;
@@ -98,11 +97,11 @@ class voiceroid_daemon {
    * @returns 音声データのstream
    */
   convert_text_voice(
-    parameter_data: parameter_data
-  ): import("got/dist/source/core").default {
-    const url_list = this.url_list;
+    parameter_data: parameter_data,
+  ): import('got/dist/source/core').default {
+    const { url_list } = this;
     return got.stream(url_list.speechtext, {
-      method: "POST",
+      method: 'POST',
       json: parameter_data,
     });
   }
@@ -112,9 +111,9 @@ class voiceroid_daemon {
    * @returns 認証コードのシード値
    */
   async get_authorization_code(): Promise<string> {
-    const url_list = this.url_list;
+    const { url_list } = this;
     const { body } = await got(url_list.getkey);
-    if (!body) throw new Error("Failed to get");
+    if (!body) throw new Error('Failed to get');
     return body;
   }
 
@@ -123,40 +122,40 @@ class voiceroid_daemon {
    * @returns 設定内容
    */
   async get_system_setting(): Promise<voiceroid_daemon_config> {
-    const url_list = this.url_list;
+    const { url_list } = this;
     const { body } = await got(url_list.setting);
     const $ = cheerio.load(body);
-    const auth_code_seed = $("#AuthCodeSeed").val();
-    const cors_addresses = $("#CorsAddresses").val();
-    const install_path = $("#InstallPath").val();
-    const kana_timeout = $("#KanaTimeout").val();
+    const auth_code_seed = $('#AuthCodeSeed').val();
+    const cors_addresses = $('#CorsAddresses').val();
+    const install_path = $('#InstallPath').val();
+    const kana_timeout = $('#KanaTimeout').val();
     const language_name = [
       {
         selected:
-          ($("#LanguageName > option:nth-child(1)").attr("selected") && true) ||
-          false,
-        value: "Default",
+          ($('#LanguageName > option:nth-child(1)').attr('selected') && true)
+          || false,
+        value: 'Default',
       },
       {
         selected:
-          ($("#LanguageName > option:nth-child(2)").attr("selected") && true) ||
-          false,
-        value: $("#LanguageName > option:nth-child(2)").val(),
+          ($('#LanguageName > option:nth-child(2)').attr('selected') && true)
+          || false,
+        value: $('#LanguageName > option:nth-child(2)').val(),
       },
       {
         selected:
-          ($("#LanguageName > option:nth-child(3)").attr("selected") && true) ||
-          false,
-        value: $("#LanguageName > option:nth-child(3)").val(),
+          ($('#LanguageName > option:nth-child(3)').attr('selected') && true)
+          || false,
+        value: $('#LanguageName > option:nth-child(3)').val(),
       },
     ];
-    const listening_address = $("#ListeningAddress").val();
-    const phrase_dictionary_path = $("#PhraseDictionaryPath").val();
-    const setting_file_path = $("#setting_file_path").val();
-    const speech_timeout = $("#SpeechTimeout").val();
-    const symbol_dictionary_path = $("#SymbolDictionaryPath").val();
-    const voiceroid_editor_exe = $("#VoiceroidEditorExe").val();
-    const word_dictionary_path = $("#WordDictionaryPath").val();
+    const listening_address = $('#ListeningAddress').val();
+    const phrase_dictionary_path = $('#PhraseDictionaryPath').val();
+    const setting_file_path = $('#setting_file_path').val();
+    const speech_timeout = $('#SpeechTimeout').val();
+    const symbol_dictionary_path = $('#SymbolDictionaryPath').val();
+    const voiceroid_editor_exe = $('#VoiceroidEditorExe').val();
+    const word_dictionary_path = $('#WordDictionaryPath').val();
     return {
       auth_code_seed,
       cors_addresses,
@@ -179,67 +178,67 @@ class voiceroid_daemon {
    * @returns 変更時のメッセージ 問題なければ「正常に変更されました」
    */
   async set_system_setting(config: voiceroid_daemon_config): Promise<string> {
-    const url_list = this.url_list;
+    const { url_list } = this;
     const current_data = await this.get_system_setting();
     const form = new FormData();
     form.append(
-      "auth_code_seed",
-      config.auth_code_seed || current_data.auth_code_seed
+      'auth_code_seed',
+      config.auth_code_seed || current_data.auth_code_seed,
     );
     form.append(
-      "cors_addresses",
-      config.cors_addresses || current_data.cors_addresses
+      'cors_addresses',
+      config.cors_addresses || current_data.cors_addresses,
     );
     form.append(
-      "install_path",
-      config.install_path || current_data.install_path
+      'install_path',
+      config.install_path || current_data.install_path,
     );
     form.append(
-      "kana_timeout",
-      config.kana_timeout || current_data.kana_timeout
+      'kana_timeout',
+      config.kana_timeout || current_data.kana_timeout,
     );
     form.append(
-      "language_name",
-      config.language_name ||
-        current_data.language_name?.filter(({ selected }) => selected)[0].value
+      'language_name',
+      config.language_name
+        || current_data.language_name?.filter(({ selected }) => selected)[0].value,
     );
     form.append(
-      "listening_address",
-      config.listening_address || current_data.listening_address
+      'listening_address',
+      config.listening_address || current_data.listening_address,
     );
     form.append(
-      "phrase_dictionary_path",
-      config.phrase_dictionary_path || current_data.phrase_dictionary_path
+      'phrase_dictionary_path',
+      config.phrase_dictionary_path || current_data.phrase_dictionary_path,
     );
     form.append(
-      "setting_file_path",
-      config.setting_file_path || current_data.setting_file_path
+      'setting_file_path',
+      config.setting_file_path || current_data.setting_file_path,
     );
     form.append(
-      "speech_timeout",
-      config.speech_timeout || current_data.speech_timeout
+      'speech_timeout',
+      config.speech_timeout || current_data.speech_timeout,
     );
     form.append(
-      "symbol_dictionary_path",
-      config.symbol_dictionary_path || current_data.symbol_dictionary_path
+      'symbol_dictionary_path',
+      config.symbol_dictionary_path || current_data.symbol_dictionary_path,
     );
     form.append(
-      "voiceroid_editor_exe",
-      config.voiceroid_editor_exe || current_data.voiceroid_editor_exe
+      'voiceroid_editor_exe',
+      config.voiceroid_editor_exe || current_data.voiceroid_editor_exe,
     );
     form.append(
-      "word_dictionary_path",
-      config.word_dictionary_path || current_data.word_dictionary_path
+      'word_dictionary_path',
+      config.word_dictionary_path || current_data.word_dictionary_path,
     );
     const { body } = await got.post(url_list.setting, { body: form });
     const $ = cheerio.load(body);
-    const return_result = $("head > script")
+    const return_result = $('head > script')
       .html()
       ?.split(/\n/)
       .filter((value: string) => /var result =/.test(value))[0]
-      .replace(/.+=\s'/, "")
-      .replace(/'.+/, "");
-    if (!return_result) throw new Error("Not data");
+      .replace(/.+=\s'/, '')
+      .replace(/'.+/, '');
+    if (!return_result) throw new Error('Not data');
     if (/エラー/.test(return_result)) throw new Error(return_result);
     return return_result;
   }

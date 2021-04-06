@@ -16,6 +16,8 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "dist",
-  }
+    "outDir": "dist"
+  },
+  "include": ["src/**/*.ts", ".eslintrc.json"],
+  "exclude": ["node_modules", "dist"]
 }
