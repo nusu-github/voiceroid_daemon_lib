@@ -14,7 +14,7 @@
   "devDependencies": {
     "@types/cheerio": "^0.22.28",
     "@types/koozaki__romaji-conv": "^2.0.0",
-    "@types/node": "14",
+    "@types/node": "16.11.26",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "eslint": "^7.23.0",
