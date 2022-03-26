@@ -12,14 +12,14 @@
   "author": "nusu- <bimiid@outlook.jp> (https://github.com/nusu-github)",
   "license": "ISC",
   "devDependencies": {
-    "@types/cheerio": "^0.22.28",
-    "@types/koozaki__romaji-conv": "^2.0.0",
-    "@types/node": "14",
-    "@typescript-eslint/eslint-plugin": "^4.21.0",
-    "@typescript-eslint/parser": "^4.21.0",
-    "eslint": "^7.23.0",
-    "prettier": "^2.2.1",
-    "typescript": "^4.2.3"
+    "@types/cheerio": "0.22.31",
+    "@types/koozaki__romaji-conv": "2.0.0",
+    "@types/node": "14.18.12",
+    "@typescript-eslint/eslint-plugin": "4.33.0",
+    "@typescript-eslint/parser": "4.33.0",
+    "eslint": "7.32.0",
+    "prettier": "2.6.1",
+    "typescript": "4.6.3"
   },
   "dependencies": {
     "@koozaki/romaji-conv": "^2.0.9",
